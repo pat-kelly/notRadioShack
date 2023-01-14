@@ -22,8 +22,14 @@ function isLoggedIn(req, res, next) {
   // res.redirect('/')
 }
 
+function isAdmin(req, res, next){
+  if(res.locals.user.role >=900) return next();
+  throw new Error('You are not authorized to view this page');
+}
+
 export {
   passDataToView,
   isLoggedIn,
   setAdminMode,
+  isAdmin,
 }
