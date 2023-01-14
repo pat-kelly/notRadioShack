@@ -19,6 +19,9 @@ router.post('/create', isLoggedIn, productCtrl.create);
 // PUT /products/:id
 router.put('/:id', isLoggedIn, productCtrl.update);
 
+// DELETE /products/:id
+router.delete('/:id', isLoggedIn, productCtrl.delete);
+
 export {
   router
 }

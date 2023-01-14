@@ -72,6 +72,12 @@ nav > a {
   justify-content: center;
 }
 
+.del-button{
+  border-radius: 50%;
+  color:red;
+  font-size: 14px;
+}
+
 .btn {
   margin: 16px 0;
 }

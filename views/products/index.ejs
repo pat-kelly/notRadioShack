@@ -8,9 +8,13 @@
 </section>
 
 <h4>Click on the name of a product to edit it.</h4>
+
 <table>
   <thead>
     <tr>
+      <% if (locals.user?.role >=900) { %>
+        <th></th>
+      <% } %>
       <th>SKU</th>
       <th>Name</th>
       <th>QTY</th>
@@ -20,7 +24,15 @@
   </thead>
   <tbody>
     <% products.forEach(product => { %>
+      
       <tr>
+        <% if (locals.user?.role >= 900) { %>
+          <td>
+            <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="del-button">X</button>
+            </form>
+          </td>
+        <% } %>
         <td><%= product.sku %></td>
         <td><a href="/products/edit/<%= product._id %>"><%= product.name %></a></td>
         <td><%= product.qty %></td>
