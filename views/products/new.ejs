@@ -1,0 +1,60 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<section>
+  <a href="">Products</a>
+  <a href="">Components</a>
+</section>
+
+<h1><%= title %> </h1>
+
+<form id="new-product-form" action="/products/create" method="POST"></form>
+<form id="add-component-form" action="/" method="PUT"></form>
+
+<section>
+  <h4>Product Details</h4>
+  <label>
+    Name: 
+    <input name="name" form="new-product-form" type="text">
+  </label>
+  <label>
+    Price: 
+    <input name="price" form="new-product-form" type="text">
+  </label>
+  <label>
+    SKU: 
+    <input name="sku" form="new-product-form" type="text">
+  </label>
+  <label>
+    Availability override: 
+    <select name="available" form="new-product-form">
+      <option>Available</option>
+      <option>Unavailable</option>
+    </select>
+  </label>
+
+  <h4>Components</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>QTY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Components will be listed here</td><td>qty here</td></tr>
+      <!-- put a foreach here that lists out all the components of the product. -->
+    </tbody>
+  </table>
+<button type="submit" form="add-component-form">Add Component</button>
+
+<button type="submit" form="new-product-form">
+  Add New Product
+</button>
+</section>
+
+
+</main>
+
+<%- include('../partials/footer') %>

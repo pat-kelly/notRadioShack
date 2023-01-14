@@ -1,7 +1,7 @@
   <% if (!user) { %>
     <script defer src="https://accounts.google.com/gsi/client"></script>
   <% } %>
-  <link rel="stylesheet" href="stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
   <nav>
@@ -38,7 +38,7 @@
     </div>
     <div>
       <% if (user?.role >= 200) { %>
-        <form action="/products/edit">
+        <form action="/products">
           <button type="submit">Edit Products</button>
         </form>  
       <% } %>
