@@ -1,12 +1,19 @@
   <% if (!user) { %>
     <script defer src="https://accounts.google.com/gsi/client"></script>
   <% } %>
+  <link rel="stylesheet" href="stylesheets/nav.css">
 </head>
 <body>
   <nav>
     <% if (user) { %>
       <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
+        <img
+        id="profile-pic"
+        height="40px"
+        src="<%= user.profile.avatar %>"
+        alt="<%= user.profile.name %> avatar"
+      />
+        <!-- <button type="submit">Logout</button> -->
       </a>
     <% } else { %>
       <div 
@@ -17,12 +24,26 @@
       ></div>
       <div 
         class="g_id_signin right"
-        data-type="standard"
+        data-type="icon"
         data-size="large"
         data-theme="outline"
         data-text="sign_in_with"
-        data-shape="rectangular"
+        data-shape="circle"
         data-logo_alignment="left"
       ></div>
     <% } %>
+    <div>
+      <input type="text">
+      <button>🔍️</button>
+    </div>
+    <div>
+      <% if (user?.role >= 200) { %>
+        <form action="/products/edit">
+          <button type="submit">Edit Products</button>
+        </form>  
+      <% } %>
+      <form action="">
+        <button type="submit"> View Cart</button>
+      </form>
+    </div>
   </nav>

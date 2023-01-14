@@ -20,16 +20,6 @@ body {
   margin: 0;
 }
 
-nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  min-height: 60px;
-}
-
 main {
   display: flex;
   align-items: center;
@@ -74,7 +64,7 @@ pre {
 }
 
 nav > a {
-  margin: 10px 30px;
+  margin: 0px 30px;
   text-decoration: none;
   font-size: 24px;
   display: flex;
@@ -94,4 +84,9 @@ nav > a {
 
 .profile-avatar {
   margin-top: 50px;
+}
+
+#profile-pic{
+  border-radius: 50%;
+  margin:0;
 }
