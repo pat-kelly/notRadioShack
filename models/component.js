@@ -22,6 +22,10 @@ const componentSchema = new Schema({
     type: Number,
     min: 0,
     default: 0
+  },
+  available:{
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

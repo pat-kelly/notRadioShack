@@ -1,0 +1,52 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <%- include('../partials/prod_comp_links')  %> 
+
+<h4>Click on the name of a component to edit it.</h4>
+
+<table>
+  <thead>
+    <tr>
+      <% if (locals.user?.role >=900) { %>
+        <th></th>
+      <% } %>
+      <th>Part Number</th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Type</th>
+      <th>Vendor</th>
+      <th>QTY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% components.forEach(component => { %>
+      
+      <tr>
+        <% if (locals.user?.role >= 900) { %>
+          <td>
+            <form action="/products/<%= component._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="del-button">X</button>
+            </form>
+          </td>
+        <% } %>
+        <td><%= component.partNo %></td>
+        <td><%= component.name %></td>
+        <td><%= component.cost %></td>
+        <td><%= component.type %></td>
+        <td><%= component.vendor %></td>
+        <td><%= component.qty %></td>
+        <td><%= component.available ? 'In stock' : 'Not in stock' %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<form action="/products/new">
+  <button type="submit">
+    Add New Component
+  </button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>
