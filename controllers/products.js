@@ -17,7 +17,14 @@ function index(req, res){
 }
 
 function edit(req, res){
-  console.log('render edit view');
+  Product.findById(req.params.id)
+  .then(product =>{
+    console.log(product);
+    res.render('products/edit', {
+      title: `Edit ${product.name}`,
+      product
+    })
+  })
 }
 
 function newProd(req, res){
@@ -27,16 +34,28 @@ function newProd(req, res){
 }
 
 function create(req, res){
+  console.log(req.body);
   req.body.available = !!req.body.available;
   req.body.price = req.body.price.replace('$', '');
   console.log(req.body);
   Product.create(req.body)
   .then(product =>{
-    res.redirect('/products/edit');
+    res.redirect('/products');
   })
   .catch(err =>{
     console.error(err);
-    res.redirect('/products/edit');
+    res.redirect('/products');
+  })
+}
+
+function update(req, res){
+  Product.findById(req.params.id)
+  .then(product =>{
+    req.body.available = !!req.body.available;
+    Product.updateOne(req.body)
+    .then(() =>{
+      res.redirect(`/products`)
+    })
   })
 }
 
@@ -45,4 +64,5 @@ export {
   edit,
   newProd as new,
   create,
+  update,
 }

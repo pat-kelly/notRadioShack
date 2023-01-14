@@ -10,6 +10,10 @@ const productSchema = new Schema({
   components: [{
     type: Schema.Types.ObjectId,
     ref: "Component"
+  }],
+  compqty: [{
+    type: Number,
+    min: 0
   }]
 }, {
   timestamps: true

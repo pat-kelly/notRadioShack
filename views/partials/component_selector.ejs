@@ -1,0 +1,22 @@
+<h4>Components</h4>
+<% if (product.components.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>QTY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% product?.components.forEach(comp,idx => { %>
+        <tr>
+          <td><%= comp.name %></td>
+          <td><%= product.compqty[idx] %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h4>This product doesn't have any components</h4>
+<% } %> 
+<button type="submit" form="add-component-form">Add Component</button>

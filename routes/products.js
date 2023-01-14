@@ -16,6 +16,9 @@ router.get('/new', isLoggedIn, productCtrl.new);
 // POST /products/create
 router.post('/create', isLoggedIn, productCtrl.create);
 
+// PUT /products/:id
+router.put('/:id', isLoggedIn, productCtrl.update);
+
 export {
   router
 }

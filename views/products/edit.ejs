@@ -1,0 +1,44 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<section>
+  <a href="">Products</a>
+  <a href="">Components</a>
+</section>
+
+<h1><%= title %> </h1>
+
+<form id="edit-product-form" action="/products/<%= product._id %>?_method=PUT" method="POST"></form>
+<form id="add-component-form" action="/" method="PUT"></form>
+
+<section>
+  <h4>Product Details</h4>
+  <label>
+    Name: 
+    <input name="name" form="edit-product-form" type="text" value="<%= product.name %>">
+  </label>
+  <label>
+    Price: 
+    <input name="price" form="edit-product-form" type="text" value="<%= product.price %>">
+  </label>
+  <label>
+    SKU: 
+    <input name="sku" form="edit-product-form" type="text" value="<%= product.sku %>">
+  </label>
+  <label>
+    In stock: 
+    <input <%= product.available ? 'checked' : '' %>  type="checkbox" name="available">
+  </label>
+
+<%- include('../partials/component_selector.ejs')  %> 
+
+<button type="submit" form="edit-product-form">
+  Update Product
+</button>
+</section>
+
+
+</main>
+
+<%- include('../partials/footer') %>
