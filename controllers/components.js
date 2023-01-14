@@ -16,7 +16,23 @@ function index(req, res){
   })
 }
 
+function newComp(req, res){
+  res.render('components/new', {
+    title: 'Add a New Component'
+  })
+}
+
+function create(req, res){
+  console.log('create', req.body);
+  req.body.available = !!req.body.available;
+  Component.create(req.body)
+  .then(component =>{
+    res.redirect('/components');
+  })
+}
 
 export {
   index,
+  newComp as new,
+  create,
 }

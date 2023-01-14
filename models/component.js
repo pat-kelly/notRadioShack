@@ -16,8 +16,10 @@ const componentSchema = new Schema({
     type: String,
     default: ''
   },
-  vendor: String,
+  vendor:{
   type: String,
+  default: ''
+  },
   qty: {
     type: Number,
     min: 0,

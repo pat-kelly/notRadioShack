@@ -1,0 +1,52 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<%- include('../partials/prod_comp_links')  %> 
+
+<h1><%= title %> </h1>
+
+
+
+<section>
+  <h4>Component Details</h4>
+  <form action="/components" method="POST">
+    <label>
+      Part Number: 
+      <input required autocomplete="off" name="partNo" type="text">
+    </label>
+    <label>
+      Name: 
+      <input required autocomplete="off" name="name" type="text">
+    </label>
+    <label>
+      Cost: 
+      <input autocomplete="off" name="cost" type="text">
+    </label>
+    <label>
+      Type: 
+      <input required autocomplete="off" name="type" type="text">
+    </label>
+    <label>
+      Vendor: 
+      <input autocomplete="off" name="vendor" type="text">
+    </label>
+    <label>
+      QTY: 
+      <input autocomplete="off" name="qty" type="text">
+    </label>
+    <label>
+      In Stock: 
+      <input name="available" type="checkbox">
+    </label>
+
+    <button type="submit">
+      Add New Component
+    </button>
+  </form>
+</section>
+
+
+</main>
+
+<%- include('../partials/footer') %>
