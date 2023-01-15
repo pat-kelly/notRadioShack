@@ -8,7 +8,7 @@ const router = Router()
 router.get('/', isLoggedIn, productCtrl.index);
 
 //GET /products/edit/:id
-router.get('/edit/:id', isLoggedIn, productCtrl.edit);
+router.get('/:id/edit', isLoggedIn, productCtrl.edit);
 
 // GET /products/new
 router.get('/new', isLoggedIn, productCtrl.new);

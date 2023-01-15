@@ -26,6 +26,10 @@ function edit(req, res){
       product
     })
   })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/');
+  })
 }
 
 function newProd(req, res){
