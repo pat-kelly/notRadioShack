@@ -28,6 +28,10 @@ const componentSchema = new Schema({
   available:{
     type: Boolean,
     default: false
+  },
+  type: {
+    type: String,
+    default: ''
   }
 }, {
   timestamps: true

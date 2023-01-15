@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Component } from '../models/component.js';
 
 
@@ -31,8 +30,44 @@ function create(req, res){
   })
 }
 
+function edit(req, res){
+  Component.findById(req.params.id)
+  .then(component =>{
+    console.log(component);
+    res.render('components/edit', {
+      title: `Edit ${component.name}`,
+      component
+    })
+  })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/');
+  })
+}
+
+function update(req, res){
+  Component.findById(req.params.id)
+  .then(component =>{
+    req.body.available = !!req.body.available;
+    Component.updateOne(req.body)
+    .then(component =>{
+      res.redirect(`/components`)
+    })
+    .catch(err =>{
+      console.error(err);
+      res.redirect('/components');
+    })
+  })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/components');
+  })
+}
+
 export {
   index,
   newComp as new,
   create,
+  edit,
+  update,
 }

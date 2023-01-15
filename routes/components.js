@@ -13,6 +13,12 @@ router.get('/new',isLoggedIn, isAdmin, compCtrl.new);
 //POST /components
 router.post('/', isLoggedIn, isAdmin, compCtrl.create);
 
+//GET /components/:id/edit
+router.get('/:id/edit', isLoggedIn, isAdmin, compCtrl.edit);
+
+// PUT /components/:id
+router.put('/:id', compCtrl.update);
+
 export {
   router
 }

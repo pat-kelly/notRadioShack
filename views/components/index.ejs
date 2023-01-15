@@ -18,6 +18,7 @@
       <th>Type</th>
       <th>Vendor</th>
       <th>QTY</th>
+      <th>Availability</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +33,7 @@
           </td>
         <% } %>
         <td><%= component.partNo %></td>
-        <td><%= component.name %></td>
+        <td><a href="/components/<%= component._id %>/edit"><%= component.name %></a></td>
         <td><%= component.cost %></td>
         <td><%= component.type %></td>
         <td><%= component.vendor %></td>

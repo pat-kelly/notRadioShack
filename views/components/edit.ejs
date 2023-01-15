@@ -1,0 +1,52 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<%- include('../partials/prod_comp_links')  %> 
+
+<h1><%= title %> </h1>
+
+
+
+<section>
+  <h3>Component Details</h3>
+  <form action="/components/<%= component._id %>?_method=PUT" method="POST">
+    <label>
+      Part Number: 
+      <input value="<%= component.partNo %>" required autocomplete="off" name="partNo" type="text">
+    </label>
+    <label>
+      Name: 
+      <input value="<%= component.name %>" required autocomplete="off" name="name" type="text">
+    </label>
+    <label>
+      Cost: 
+      <input value="<%= component.cost %>" autocomplete="off" name="cost" type="text">
+    </label>
+    <label>
+      Type: 
+      <input value="<%= component.type %>" required autocomplete="off" name="type" type="text">
+    </label>
+    <label>
+      Vendor: 
+      <input value="<%= component.vendor %>" autocomplete="off" name="vendor" type="text">
+    </label>
+    <label>
+      QTY: 
+      <input value="<%= component.qty %>" autocomplete="off" name="qty" type="text">
+    </label>
+    <label>
+      In Stock: 
+      <input <%= component.available ? 'checked' : '' %> name="available" type="checkbox">
+    </label>
+
+    <button type="submit">
+      Update <%= component.name %> 
+    </button>
+  </form>
+</section>
+
+
+</main>
+
+<%- include('../partials/footer') %>
