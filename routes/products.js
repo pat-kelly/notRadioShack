@@ -29,7 +29,7 @@ router.get('/:id/addComponent',isLoggedIn, productCtrl.addComp);
 router.patch('/:id',isLoggedIn, productCtrl.updateComp);
 
 // DELETE /products/:prodId/:compId
-router.delete('/:prodId/:idx', productCtrl.delComp)
+router.delete('/:prodId/:idx',isLoggedIn, productCtrl.delComp)
 
 export {
   router
