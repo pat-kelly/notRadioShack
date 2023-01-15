@@ -64,10 +64,24 @@ function update(req, res){
   })
 }
 
+function delComp(req, res){
+  if(req.user.role >=900){
+    Component.findByIdAndDelete(req.params.id)
+    .then(component =>{
+      res.redirect('/components');
+    })
+    .catch(err =>{
+      console.error(err);
+      res.redirect('/components');
+    })
+  }
+}
+
 export {
   index,
   newComp as new,
   create,
   edit,
   update,
+  delComp as delete,
 }

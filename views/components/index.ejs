@@ -27,7 +27,7 @@
       <tr>
         <% if (locals.user?.role >= 900) { %>
           <td>
-            <form action="/products/<%= component._id %>?_method=DELETE" method="POST">
+            <form action="/components/<%= component._id %>?_method=DELETE" method="POST">
               <button type="submit" class="del-button">X</button>
             </form>
           </td>

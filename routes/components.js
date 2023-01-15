@@ -17,7 +17,10 @@ router.post('/', isLoggedIn, isAdmin, compCtrl.create);
 router.get('/:id/edit', isLoggedIn, isAdmin, compCtrl.edit);
 
 // PUT /components/:id
-router.put('/:id', compCtrl.update);
+router.put('/:id', isLoggedIn, isAdmin, compCtrl.update);
+
+// DELETE /components/:id
+router.delete('/:id', isLoggedIn, isAdmin, compCtrl.delete);
 
 export {
   router
