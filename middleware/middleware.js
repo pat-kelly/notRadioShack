@@ -12,6 +12,7 @@ function setAdminMode(req, res, next) {
   .then(user =>{
     // console.log(user);
     res.locals.user = user;
+    req.user = user;
     next();
   })
 }
