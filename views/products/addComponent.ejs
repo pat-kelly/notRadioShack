@@ -1,0 +1,64 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <%- include('../partials/prod_comp_links')  %> 
+
+<h1><%= title %> </h1>
+
+<section>
+  <h2>Components</h2>
+  <% if (product.components.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <% if (locals.user.role >=200) { %>
+            <th></th>
+          <% } %>
+          <th>Component</th>
+          <th>QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% for( let i = 0; i < product.components.length; i++ ) { %>
+          <tr>
+            <% if (locals.user.role >=200) { %>
+              <td>
+                <form 
+                  action="/products/<%= product.id %>/<%= i %>?_method=DELETE" 
+                  method="POST"
+                >
+                  <button class='del-button'>X</button>
+                </form>
+              </td>
+            <% } %>
+            <td> <%= product.components[i].name %></td>
+            <td><%= product.compQty[i] %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h4>This product doesn't have any components</h4>
+  <% } %> 
+  <form action="/products/<%= product._id %>?_method=PATCH" method="POST">
+    <select name="compId">
+      <% components.forEach(comp => { %>
+        <option value="<%= comp._id %>"><%= comp.name %></option>
+      <% }) %>
+    </select>
+    <label>
+      QTY: 
+      <input name="qty" type="text">
+    </label>
+    <button type="submit">Add Component</button>
+  </form>
+
+<button>Back to Products</button>
+</section>
+
+
+</main>
+
+<%- include('../partials/footer') %>

@@ -7,7 +7,7 @@
 <h1><%= title %> </h1>
 
 <form id="edit-product-form" action="/products/<%= product._id %>?_method=PUT" method="POST"></form>
-<form id="add-component-form" action="/" method="PUT"></form>
+
 
 <section>
   <h4>Product Details</h4>
@@ -28,7 +28,28 @@
     <input <%= product.available ? 'checked' : '' %> form="edit-product-form" type="checkbox" name="available">
   </label>
 
-<%- include('../partials/component_selector.ejs')  %> 
+  <h4>Components</h4>
+  <% if (product.components.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for( let i = 0; i < product.components.length; i++ ) { %>
+          <tr>
+            <td><%= product.components[i].name %></td>
+            <td><%= product.compQty[i]%> </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h4>This product doesn't have any components</h4>
+  <% } %> 
+  <a href="/products/<%= product._id %>/addComponent"><button>Add Component</button></a>
 
 <button type="submit" form="edit-product-form">
   Update Product

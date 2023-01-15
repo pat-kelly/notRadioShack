@@ -19,6 +19,7 @@ function index(req, res){
 
 function edit(req, res){
   Product.findById(req.params.id)
+  .populate('components')
   .then(product =>{
     console.log(product);
     res.render('products/edit', {
@@ -86,6 +87,68 @@ function delProd(req, res){
   }
 }
 
+function addComp(req, res){
+  // console.log('addComp');
+  Product.findById(req.params.id)
+  .populate('components')
+  .then(product =>{
+    Component.find({})
+    .then(components =>{
+      // console.log(product.components)
+      res.render('products/addComponent', {
+        title: `Adding Components to ${product.name}`,
+        product,
+        components
+      })
+    })
+    .catch(err =>{
+      console.error(err);
+      res.redirect('/products');
+    })
+  })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/products');
+  })
+}
+
+function updateComp(req, res){
+  // console.log('prodID', req.params.id);
+  // console.log('body', req.body);
+  Product.findById(req.params.id)
+  .then(product =>{
+    product.components.push(req.body.compId);
+    if(!req.body.qty) req.body.qty = 1;
+    product.compQty.push(req.body.qty);
+    product.save()
+    .then(product =>{
+      res.redirect(`/products/${product._id}/addComponent`);
+    })
+    .catch(err =>{
+      console.error(err);
+      res.redirect('/products');
+    })
+  })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/products');
+  })
+}
+
+function delComp(req, res){
+  console.log('prodId', req.params.prodId);
+  console.log('idx', req.params.idx);
+  Product.findById(req.params.prodId)
+  .then(product =>{
+    product.components.splice(req.params.idx, 1);
+    product.compQty.splice(req.params.idx, 1);
+    product.save()
+    .then(product =>{
+      res.redirect(`/products/${product._id}/addComponent`)
+    })
+  })
+}
+
 export {
   index,
   edit,
@@ -93,4 +156,7 @@ export {
   create,
   update,
   delProd as delete,
+  addComp,
+  updateComp,
+  delComp,
 }

@@ -11,7 +11,7 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Component"
   }],
-  compqty: [{
+  compQty: [{
     type: Number,
     min: 0
   }]
