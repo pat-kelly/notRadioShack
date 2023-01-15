@@ -1,35 +1,35 @@
 import { Router } from 'express';
 import * as productCtrl from '../controllers/products.js';
-import { isLoggedIn } from '../middleware/middleware.js';
+import { isLoggedIn, isEmployee } from '../middleware/middleware.js';
 
 const router = Router()
 
 // GET /products/edit
-router.get('/', isLoggedIn, productCtrl.index);
+router.get('/', isLoggedIn, isEmployee, productCtrl.index);
 
 //GET /products/edit/:id
-router.get('/:id/edit', isLoggedIn, productCtrl.edit);
+router.get('/:id/edit', isLoggedIn, isEmployee, productCtrl.edit);
 
 // GET /products/new
-router.get('/new', isLoggedIn, productCtrl.new);
+router.get('/new', isLoggedIn, isEmployee, productCtrl.new);
 
 // POST /products/create
-router.post('/create', isLoggedIn, productCtrl.create);
+router.post('/create', isLoggedIn, isEmployee, productCtrl.create);
 
 // PUT /products/:id
-router.put('/:id', isLoggedIn, productCtrl.update);
+router.put('/:id', isLoggedIn, isEmployee, productCtrl.update);
 
 // DELETE /products/:id
-router.delete('/:id', isLoggedIn, productCtrl.delete);
+router.delete('/:id', isLoggedIn, isEmployee, productCtrl.delete);
 
 // Get /products/:id/addComponent
-router.get('/:id/addComponent',isLoggedIn, productCtrl.addComp);
+router.get('/:id/addComponent',isLoggedIn, isEmployee, productCtrl.addComp);
 
 // PATCH /products/:id
-router.patch('/:id',isLoggedIn, productCtrl.updateComp);
+router.patch('/:id',isLoggedIn, isEmployee, productCtrl.updateComp);
 
 // DELETE /products/:prodId/:compId
-router.delete('/:prodId/:idx',isLoggedIn, productCtrl.delComp)
+router.delete('/:prodId/:idx',isLoggedIn, isEmployee, productCtrl.delComp)
 
 export {
   router

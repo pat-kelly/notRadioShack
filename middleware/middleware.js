@@ -28,9 +28,15 @@ function isAdmin(req, res, next){
   throw new Error('You are not authorized to view this page');
 }
 
+function isEmployee(req, res, next){
+  if(res.locals.user.role >=200) return next();
+  throw new Error('You are not authorized to view this page')
+}
+
 export {
   passDataToView,
   isLoggedIn,
   setAdminMode,
   isAdmin,
+  isEmployee,
 }
