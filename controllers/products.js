@@ -34,8 +34,12 @@ function edit(req, res){
 }
 
 function newProd(req, res){
-  res.render('products/new', {
-    title: 'Add New Product'
+  Component.find({})
+  .then(components =>{
+    res.render('products/new', {
+      title: 'Add New Product',
+      components
+    })
   })
 }
 
