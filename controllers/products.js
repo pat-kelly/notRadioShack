@@ -81,6 +81,8 @@ function update(req, res){
   Product.findById(req.params.id)
   .then(product =>{
     req.body.available = !!req.body.available;
+    req.body.shortDesc = req.body.description.slice(0, 45);
+    if(req.body.shortDesc.length === 45) req.body.shortDesc += '...';
     product.updateOne(req.body)
     .then(() =>{
       req.query.editComp ? 
