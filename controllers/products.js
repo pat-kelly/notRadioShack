@@ -61,19 +61,20 @@ function create(req, res){
   })
 }
 
-function createAddComps(req, res){
-  // console.log(req.body);
-  req.body.available = !!req.body.available;
-  req.body.price = req.body.price.replace('$', '');
-  Product.create(req.body)
-  .then(product =>{
-    res.redirect(`/products/${product._id}/edit`);
-  })
-  .catch(err =>{
-    console.error(err);
-    res.redirect('/products');
-  })
-}
+//! depreciated, but leaving here until i'm 100% sure.
+// function createAddComps(req, res){
+//   // console.log(req.body);
+//   req.body.available = !!req.body.available;
+//   req.body.price = req.body.price.replace('$', '');
+//   Product.create(req.body)
+//   .then(product =>{
+//     res.redirect(`/products/${product._id}/edit`);
+//   })
+//   .catch(err =>{
+//     console.error(err);
+//     res.redirect('/products');
+//   })
+// }
 
 function update(req, res){
   // console.log(req.query.editComp ? 'truthy' : 'falsy');
@@ -178,7 +179,7 @@ export {
   edit,
   newProd as new,
   create,
-  createAddComps,
+  //!createAddComps, might be depreciated.
   update,
   delProd as delete,
   addComp,
