@@ -49,7 +49,7 @@ function update(req, res){
   Component.findById(req.params.id)
   .then(component =>{
     req.body.available = !!req.body.available;
-    Component.updateOne(req.body)
+    component.updateOne(req.body)
     .then(component =>{
       res.redirect(`/components`)
     })
