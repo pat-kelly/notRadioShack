@@ -12,7 +12,7 @@
   
   <% const toDisplay = [...products, ...components] %> 
   <% for( let i = 0; i < toDisplay.length; i++ ) { %>
-    <section>
+    <section class = 'product'>
       <img src="//unsplash.it/100/100">
       <p><%= toDisplay[i].name %></p>
       <p><%= toDisplay[i].shortDesc %> </p>

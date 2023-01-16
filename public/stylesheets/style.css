@@ -51,9 +51,9 @@ label {
   font-weight: bold;
 }
 
-section {
+/* section {
   padding: 50px;
-}
+} */
 
 a {
   color: #00B7FF;
@@ -75,11 +75,19 @@ nav > a {
 .product-listing{
   display:grid;
   gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 20px 15%;
 }
 
-.product-listing section {
+.product{
+  padding: 10px;
   background-color: white;
   color: black;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .hero{
