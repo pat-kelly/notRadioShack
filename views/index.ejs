@@ -1,16 +1,25 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
+<section class="hero">
+  <h2>Banner / Logo / Something goes here</h2>
+</section>
+
+<%- include('./partials/storeNav') %> 
+
+<main class="product-listing">
+  
+  
+  <% const toDisplay = [...products, ...components] %> 
+  <% for( let i = 0; i < toDisplay.length; i++ ) { %>
+    <section>
+      <img src="//unsplash.it/100/100">
+      <p><%= toDisplay[i].name %></p>
+      <p><%= toDisplay[i].shortDesc %> </p>
+    </section>
   <% } %>
+
+  
 </main>
 
 <%- include('./partials/footer') %>

@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
+  background-color: #777171;
   color: #f6f6f6;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
@@ -69,6 +69,21 @@ nav > a {
   font-size: 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.product-listing{
+  display:grid;
+  gap: 1.5rem;
+}
+
+.product-listing section {
+  background-color: white;
+  color: black;
+}
+
+.hero{
+  display:flex;
   justify-content: center;
 }
 

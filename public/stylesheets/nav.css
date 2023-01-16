@@ -11,3 +11,9 @@ nav {
 nav form{
   display:inline-block;
 }
+
+#store-nav{
+  justify-content: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
