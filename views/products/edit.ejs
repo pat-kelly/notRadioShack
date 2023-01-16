@@ -6,55 +6,61 @@
 
 <h1><%= title %> </h1>
 
-<form id="edit-product-form" action="/products/<%= product._id %>?_method=PUT" method="POST"></form>
+<form 
+  id="edit-product-form" 
+  action="/products/<%= product._id %>?_method=PUT" 
+  method="POST"
+>
+  <section>
+    <h4>Product Details</h4>
+    <label>
+      Name: 
+      <input autocomplete="off" name="name" type="text" value="<%= product.name %>">
+    </label>
+    <label>
+      Price: 
+      <input autocomplete="off" name="price" type="text" value="<%= product.price %>">
+    </label>
+    <label>
+      SKU: 
+      <input autocomplete="off" name="sku" type="text" value="<%= product.sku %>">
+    </label>
+    <label>
+      In stock: 
+      <input <%= product.available ? 'checked' : '' %> type="checkbox" name="available">
+    </label>
 
-
-<section>
-  <h4>Product Details</h4>
-  <label>
-    Name: 
-    <input autocomplete="off" name="name" form="edit-product-form" type="text" value="<%= product.name %>">
-  </label>
-  <label>
-    Price: 
-    <input autocomplete="off" name="price" form="edit-product-form" type="text" value="<%= product.price %>">
-  </label>
-  <label>
-    SKU: 
-    <input autocomplete="off" name="sku" form="edit-product-form" type="text" value="<%= product.sku %>">
-  </label>
-  <label>
-    In stock: 
-    <input <%= product.available ? 'checked' : '' %> form="edit-product-form" type="checkbox" name="available">
-  </label>
-
-  <h4>Components</h4>
-  <% if (product.components.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Component</th>
-          <th>QTY</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for( let i = 0; i < product.components.length; i++ ) { %>
+    <h4>Components</h4>
+    <% if (product.components.length) { %>
+      <table>
+        <thead>
           <tr>
-            <td><%= product.components[i].name %></td>
-            <td><%= product.compQty[i]%> </td>
+            <th>Component</th>
+            <th>QTY</th>
           </tr>
-        <% } %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h4>This product doesn't have any components</h4>
-  <% } %> 
-  <a href="/products/<%= product._id %>/addComponent"><button>Add Component</button></a>
-
-<button type="submit" form="edit-product-form">
-  Update Product
-</button>
-</section>
+        </thead>
+        <tbody>
+          <% for( let i = 0; i < product.components.length; i++ ) { %>
+            <tr>
+              <td><%= product.components[i].name %></td>
+              <td><%= product.compQty[i]%> </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h4>This product doesn't have any components</h4>
+    <% } %> 
+  </section>
+  <section>
+    <button type="submit" formaction="/products/<%= product._id %>?editComp=true&_method=PUT">
+      Save and Add Components
+    </button>
+    <button type="submit">
+      Save Product
+    </button>
+  </section>
+</form>
 
 
 </main>

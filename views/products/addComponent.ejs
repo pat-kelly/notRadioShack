@@ -55,7 +55,10 @@
     <button type="submit">Add Component</button>
   </form>
 
-<button>Back to Products</button>
+<form action="#" method="GET">
+  <button type="submit" formaction="/products/<%= product._id %>/edit">Back to Edit <%= product.name %></button>
+  <button type="submit" formaction="/products">All Products</button>
+</form>
 </section>
 
 

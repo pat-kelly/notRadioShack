@@ -58,13 +58,30 @@ function create(req, res){
   })
 }
 
+function createAddComps(req, res){
+  console.log(req.body);
+  req.body.available = !!req.body.available;
+  req.body.price = req.body.price.replace('$', '');
+  Product.create(req.body)
+  .then(product =>{
+    res.redirect(`/products/${product._id}/edit`);
+  })
+  .catch(err =>{
+    console.error(err);
+    res.redirect('/products');
+  })
+}
+
 function update(req, res){
+  console.log(req.query.editComp ? 'truthy' : 'falsy');
   Product.findById(req.params.id)
   .then(product =>{
     req.body.available = !!req.body.available;
-    Product.updateOne(req.body)
+    product.updateOne(req.body)
     .then(() =>{
-      res.redirect(`/products`)
+      req.query.editComp ? 
+        res.redirect(`/products/${product._id}/addComponent`) 
+        : res.redirect(`/products`);      
     })
     .catch(err =>{
       console.error(err);
@@ -158,6 +175,7 @@ export {
   edit,
   newProd as new,
   create,
+  createAddComps,
   update,
   delProd as delete,
   addComp,
