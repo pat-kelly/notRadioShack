@@ -21,7 +21,7 @@ function edit(req, res){
   Product.findById(req.params.id)
   .populate('components')
   .then(product =>{
-    console.log(product);
+    // console.log(product);
     res.render('products/edit', {
       title: `Edit ${product.name}`,
       product
@@ -44,13 +44,16 @@ function newProd(req, res){
 }
 
 function create(req, res){
-  console.log(req.body);
+  // console.log(req.body);
   req.body.available = !!req.body.available;
   req.body.price = req.body.price.replace('$', '');
   // console.log(req.body);
   Product.create(req.body)
   .then(product =>{
-    res.redirect('/products');
+    console.log(req.query);
+    req.query.editComps ? 
+    res.redirect(`/products/${product._id}/addComponent`)
+    : res.redirect('/products');
   })
   .catch(err =>{
     console.error(err);
@@ -59,7 +62,7 @@ function create(req, res){
 }
 
 function createAddComps(req, res){
-  console.log(req.body);
+  // console.log(req.body);
   req.body.available = !!req.body.available;
   req.body.price = req.body.price.replace('$', '');
   Product.create(req.body)
@@ -73,7 +76,7 @@ function createAddComps(req, res){
 }
 
 function update(req, res){
-  console.log(req.query.editComp ? 'truthy' : 'falsy');
+  // console.log(req.query.editComp ? 'truthy' : 'falsy');
   Product.findById(req.params.id)
   .then(product =>{
     req.body.available = !!req.body.available;
@@ -95,7 +98,7 @@ function update(req, res){
 }
 
 function delProd(req, res){
-  console.log(req.params.id, 'in delete');
+  // console.log(req.params.id, 'in delete');
   if(req.user.role >=900){
     Product.findByIdAndDelete(req.params.id)
     .then(product =>{
