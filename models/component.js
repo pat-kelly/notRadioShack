@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const componentSchema = new Schema({
   name: { type: String, default: '' },
   description: { type: String, default: '' },
+  shortDesc: {type: String, defulat: ''},
   cost: { type: Number, default: 0, min: 0 },
   partNo: { type: String, default: '' },
   vendor:{ type: String, default: '' },
