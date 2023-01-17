@@ -1,11 +1,14 @@
 #main-nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content:space-between;
-  padding: 10px;
   min-height: 60px;
+}
+
+nav {
+  padding: 10px;
+  background-color: #f6f6f6;
+  color: #1a1a1a;
 }
 
 nav form{
@@ -13,21 +16,35 @@ nav form{
 }
 
 #store-nav{
+  display:flex;
   justify-content: center;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
 
-/* .S9gUrf-YoZ4jf{
-  position: absolute;
-  left:-250px;
-} */
+#mobile-nav{
+  display:none;
+  font-size: 32px;
+}
+
+#mobile-nav a{
+  font-size: 32px;
+}
 
 @media (max-width: 500px){
   .search-bar{
     display:none;
   }
 
+  #main-nav{
+    display:none;
+  }
+
+  #mobile-nav{
+    display:flex;
+    justify-content: space-between;
+  }
+  
   #store-nav{
     flex-direction: column;
   }
