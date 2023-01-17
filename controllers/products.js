@@ -50,7 +50,7 @@ function create(req, res){
   // console.log(req.body);
   Product.create(req.body)
   .then(product =>{
-    console.log(req.query);
+    // console.log(req.query);
     req.query.editComps ? 
     res.redirect(`/products/${product._id}/addComponent`)
     : res.redirect('/products');
