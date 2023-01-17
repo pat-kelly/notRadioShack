@@ -63,20 +63,7 @@ pre {
   font-size: 14px;
 }
 
-nav > a {
-  margin: 0px 30px;
-  text-decoration: none;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .product-listing{
-  /* display:grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(4, 1fr); */
-  /* grid-auto-columns:minmax(10px, 50px); */
   display:flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -85,17 +72,6 @@ nav > a {
   gap: 1rem;
   margin: 20px 10%;
 }
-/* 
-@media (max-width: 1000px) {
-  .product-listing{
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 750px) {
-  .product-listing{
-    grid-template-columns: repeat(2, 1fr);
-  }
-} */
 
 .product{
   height: 300px;

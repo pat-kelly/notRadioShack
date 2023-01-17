@@ -11,13 +11,19 @@ nav {
   color: #1a1a1a;
 }
 
+nav > a {
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0 15px;
+}
+
 nav form{
   display:inline-block;
 }
 
 #store-nav{
   display:flex;
-  justify-content: center;
+  justify-content:center;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
