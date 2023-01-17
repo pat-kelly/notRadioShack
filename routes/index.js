@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import * as indexCtrl from '../controllers/index.js'
-import { index } from '../controllers/products.js';
 
 const router = Router()
 
