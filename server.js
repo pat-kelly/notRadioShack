@@ -65,7 +65,7 @@ app.use(passport.session())
 app.use(passDataToView);
 //!DELETE BEFORE DEPLOYMENT
 //!ALSO FIX ISLOGGEDIN
-app.use(setAdminMode);
+// app.use(setAdminMode);
 
 // router middleware
 app.use('/', indexRouter)
