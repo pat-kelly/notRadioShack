@@ -22,8 +22,10 @@ function newComp(req, res){
 }
 
 function create(req, res){
-  console.log('create', req.body);
+  // console.log('create', req.body);
   req.body.available = !!req.body.available;
+  req.body.shortDesc = req.body.description.slice(0, 45);
+  if(req.body.shortDesc.length === 45) req.body.shortDesc += '...';
   Component.create(req.body)
   .then(component =>{
     res.redirect('/components');
@@ -49,6 +51,8 @@ function update(req, res){
   Component.findById(req.params.id)
   .then(component =>{
     req.body.available = !!req.body.available;
+    req.body.shortDesc = req.body.description.slice(0, 45);
+    if(req.body.shortDesc.length === 45) req.body.shortDesc += '...';
     component.updateOne(req.body)
     .then(component =>{
       res.redirect(`/components`)

@@ -47,6 +47,8 @@ function create(req, res){
   // console.log(req.body);
   req.body.available = !!req.body.available;
   req.body.price = req.body.price.replace('$', '');
+  req.body.shortDesc = req.body.description.slice(0, 45);
+  if(req.body.shortDesc.length === 45) req.body.shortDesc += '...';
   // console.log(req.body);
   Product.create(req.body)
   .then(product =>{
