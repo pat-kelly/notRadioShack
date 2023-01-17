@@ -1,4 +1,4 @@
-nav {
+#main-nav {
   background-color: #f6f6f6;
   color: #1a1a1a;
   display: flex;
@@ -18,7 +18,16 @@ nav form{
   border-bottom: 2px solid black;
 }
 
+/* .S9gUrf-YoZ4jf{
+  position: absolute;
+  left:-250px;
+} */
+
 @media (max-width: 500px){
+  .search-bar{
+    display:none;
+  }
+
   #store-nav{
     flex-direction: column;
   }

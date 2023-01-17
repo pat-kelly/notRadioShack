@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
-  <nav>
+  <nav id="main-nav">
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <img
@@ -16,25 +16,29 @@
         <!-- <button type="submit">Logout</button> -->
       </a>
     <% } else { %>
-      <div 
+      <div>
+        <div 
         id="g_id_onload"
         data-client_id="<%= googleClientID %>"
         data-login_uri="/auth/google"
         data-auto_prompt="false"
-      ></div>
-      <div 
+        ></div>
+        <div 
         class="g_id_signin right"
         data-type="icon"
         data-size="large"
         data-theme="outline"
         data-text="sign_in_with"
-        data-shape="circle"
+        data-shape="pill"
         data-logo_alignment="left"
-      ></div>
+        ></div>
+      </div>
     <% } %>
-    <div>
-      <input type="text">
-      <button>🔍️</button>
+    <div class="search-bar">
+      <form>
+        <input type="text">
+        <button>🔍️</button>
+      </form>
     </div>
     <div>
       <% if (user?.role >= 200) { %>
@@ -47,4 +51,7 @@
         <button type="submit"> View Cart</button>
       </form>
     </div>
+  </nav>
+  <nav id="mobile-nav">
+
   </nav>
