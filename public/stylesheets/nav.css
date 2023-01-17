@@ -50,10 +50,6 @@ nav form{
     display:flex;
     justify-content: space-between;
   }
-  
-  #store-nav{
-    flex-direction: column;
-  }
 
   #store-nav a{
     font-size: 20px;

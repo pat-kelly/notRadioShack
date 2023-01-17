@@ -51,10 +51,6 @@ label {
   font-weight: bold;
 }
 
-/* section {
-  padding: 50px;
-} */
-
 a {
   color: #00B7FF;
 }
@@ -88,7 +84,7 @@ pre {
 }
 
 .product:hover{
-  filter: brightness(1.2);
+  filter: brightness(1.1);
   border: 1px solid black;
 }
 
