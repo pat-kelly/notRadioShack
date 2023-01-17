@@ -6,7 +6,7 @@
 }
 
 nav {
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #f6f6f6;
   color: #1a1a1a;
 }
@@ -14,7 +14,7 @@ nav {
 nav > a {
   text-decoration: none;
   font-size: 24px;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 nav form{

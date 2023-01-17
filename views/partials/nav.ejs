@@ -6,15 +6,17 @@
 <body>
   <nav id="main-nav">
     <% if (user) { %>
-      <a href="/auth/logout" class="right">
-        <img
-        id="profile-pic"
-        height="40px"
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-        <!-- <button type="submit">Logout</button> -->
-      </a>
+      <div style="height:40px">
+        <a href="/auth/logout" class="right">
+          <img
+          id="profile-pic"
+          height="100%"
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
+          <!-- <button type="submit">Logout</button> -->
+        </a>
+      </div>
     <% } else { %>
       <div>
         <div 
