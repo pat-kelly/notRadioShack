@@ -3,6 +3,33 @@ import { Cart } from './cart.js'
 
 const Schema = mongoose.Schema
 
+const cartSchema = new Schema({
+  prods:[{
+    type: Schema.Types.ObjectId,
+    ref: "Product",
+    required: true,
+    default: []
+  }],
+  prodsQty:[{
+    type: Number,
+    required: true,
+    default: []
+  }],
+  comps:[{
+    type: Schema.Types.ObjectId,
+    ref: "Component",
+    required: true,
+    default: []
+  }],
+  compsQty:[{
+    type: Number,
+    required: true,
+    default: []
+  }],
+}, {
+  timestamps: true
+})
+
 const profileSchema = new Schema({
   name: String,
   avatar: String,
@@ -10,8 +37,14 @@ const profileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Product"
   }],
-  cart:{ type: Schema.Types.ObjectId, 
-    ref: "Cart"
+  cart: {
+    type: cartSchema,
+    default: {
+      prods: [],
+      prodsQty: [],
+      comps: [],
+      compsQty: []
+    }
   }
 }, {
   timestamps: true
