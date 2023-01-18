@@ -1,12 +1,38 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/prodShow.css">
 <%- include('../partials/nav') %>
-
 <%- include('../partials/storeNav') %> 
 
 <main>
-
 <h1><%= title %> </h1>
+<div class="main-container">
+  <section id="left-main">
+    <section>
+      <img src="//unsplash.it/300/300">
+      <div>
+        <p><span class="prodLabel">Part Number:</span> <%= component.partNo %></p>
+        <p><span class="prodLabel">Description:</span> <%= component.description %></p>
+        <p><span class="prodLabel">Vendor:</span> <%= component.vendor %></p>
+        <p><span class="prodLabel">Category:</span> <%= component.type %></p>
+        
+      </div>
+    </section>
 
+  </section>
+  <section id="right-main">
+    <div class="header">
+      In Stock: <%= component.qty %> 
+    </div>
+    <form id="cart-form" action=""></form>
+      <label for="qty-to-buy">Enter Quantity: </label>
+      <input form="cart-form" id="qty-to-buy" name="qtyAddToCart" type="text">
+      <% if (component.qty < 1 || !component.available) { %>
+        <button disabled>Out of stock</button>       
+      <% } else { %>
+        <button form="cart-form" type="submit">Add to Cart</button>
+      <% } %> 
+  </section>
+</div>
 </main>
 
 <%- include('../partials/footer') %>
