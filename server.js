@@ -10,7 +10,7 @@ import methodOverride from 'method-override'
 import passport from 'passport'
 
 // import custom middleware
-import { passDataToView, setAdminMode } from './middleware/middleware.js'
+import { passDataToView, setAdminMode, setGuest } from './middleware/middleware.js'
 
 // connect to MongoDB with mongoose
 import './config/database.js'
@@ -66,7 +66,8 @@ app.use(passport.session())
 app.use(passDataToView);
 //!DELETE BEFORE DEPLOYMENT
 //!ALSO FIX ISLOGGEDIN
-// app.use(setAdminMode);
+app.use(setAdminMode);
+app.use(setGuest);
 
 // router middleware
 app.use('/', indexRouter)
