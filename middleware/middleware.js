@@ -7,7 +7,7 @@ function passDataToView(req, res, next) {
 }
 
 function setAdminMode(req, res, next) {
-  User.findById('63c2e8bae9db1dd059344adb')
+  User.findById('63c82436411b5a838b3ae4b2')
   .populate('profile')
   .then(user =>{
     // console.log(user);

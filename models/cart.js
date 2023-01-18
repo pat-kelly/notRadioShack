@@ -5,11 +5,15 @@ const Schema = mongoose.Schema
 const cartSchema = new Schema({
   prods:[{
     type: Schema.Types.ObjectId,
-    ref: "Product"
+    ref: "Product",
+    required: true,
+    default: []
   }],
   comps:[{
     type: Schema.Types.ObjectId,
-    ref: "Component"
+    ref: "Component",
+    required: true,
+    default: []
   }]
 }, {
   timestamps: true

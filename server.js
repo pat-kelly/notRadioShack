@@ -51,7 +51,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
       sameSite: 'lax',
     },
@@ -74,6 +74,8 @@ app.use('/auth', authRouter)
 app.use('/products', productRouter);
 app.use('/components', componentRouter);
 app.use('/cart', cartRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -35,6 +35,9 @@ router.patch('/:id',isLoggedIn, isEmployee, productCtrl.updateComp);
 // DELETE /products/:prodId/:compId
 router.delete('/:prodId/:idx',isLoggedIn, isEmployee, productCtrl.delComp)
 
+// GET /products/:id
+router.get('/:id', productCtrl.show);
+
 export {
   router
 }

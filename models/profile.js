@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { Cart } from './cart.js'
 
 const Schema = mongoose.Schema
 
@@ -9,7 +10,9 @@ const profileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Product"
   }],
-  cart:{ type: Schema.Types.ObjectId, ref: "Cart"}
+  cart:{ type: Schema.Types.ObjectId, 
+    ref: "Cart"
+  }
 }, {
   timestamps: true
 })

@@ -58,7 +58,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (userId, done) {
   User.findById(userId)
-  .populate('profile', 'name avatar')
+  .populate('profile')
   .then(user => {
     // console.log(user);
     done(null, user)

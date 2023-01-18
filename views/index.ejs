@@ -1,19 +1,27 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<section class="hero">
-  <h2>Banner / Logo / Something goes here</h2>
-</section>
-
 <%- include('./partials/storeNav') %> 
 
 <main class="product-listing">
-  <% const toDisplay = [...products, ...components] %> 
-  <% for( let i = 0; i < toDisplay.length; i++ ) { %>
+  
+  <% for( let i = 0; i < products.length; i++ ) { %>
     <section class = 'product'>
-      <img src="//unsplash.it/150/150">
-      <p class="prod-name"><%= toDisplay[i].name %></p>
-      <p class="prod-desc"><%= toDisplay[i].shortDesc %> </p>
+      <a href="/products/<%= products[i]._id %>">
+        <img src="//unsplash.it/150/150">
+        <p class="prod-name"><%= products[i].name %></p>
+        <p class="prod-desc"><%= products[i].shortDesc %> </p>
+      </a>
+    </section>
+  <% } %>
+  
+  <% for( let i = 0; i < components.length; i++ ) { %>
+    <section class = 'product'>
+      <a href="/components/<%= components[i]._id %>" >
+        <img src="//unsplash.it/150/150">
+        <p class="prod-name"><%= components[i].name %></p>
+        <p class="prod-desc"><%= components[i].shortDesc %></p>
+      </a>
     </section>
   <% } %>
 

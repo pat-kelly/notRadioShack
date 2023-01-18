@@ -4,7 +4,12 @@ import { User } from "../models/user.js";
 
 function index(req, res){
   console.log('SHOW ME DA CART');
-  console.log(req.user);
+  if(req.user){
+    req.user.populate('profile');
+    console.log(req.user);
+    console.log(req.user.profile.populate('cart'))
+    console.log('cart', req.user.profile.cart)
+  }
 
   res.render('cart/index',{
     title: 'Shopping Cart'

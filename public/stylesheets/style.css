@@ -52,7 +52,8 @@ label {
 }
 
 a {
-  color: #00B7FF;
+  color:black;
+  text-decoration: none;
 }
 
 pre {
