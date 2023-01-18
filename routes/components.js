@@ -22,6 +22,9 @@ router.put('/:id', isLoggedIn, isAdmin, compCtrl.update);
 // DELETE /components/:id
 router.delete('/:id', isLoggedIn, isAdmin, compCtrl.delete);
 
+// GET /components/:id
+router.get('/:id', compCtrl.show);
+
 export {
   router
 }

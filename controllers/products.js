@@ -179,7 +179,7 @@ function delComp(req, res){
 }
 
 function show(req, res){
-  console.log('prodID', req.params.id);
+  // console.log('prodID', req.params.id);
   Product.findById(req.params.id)
   .then(product =>{
     res.render('products/show',{

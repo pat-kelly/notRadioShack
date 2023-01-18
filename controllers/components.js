@@ -81,6 +81,17 @@ function delComp(req, res){
   }
 }
 
+function show(req, res){
+  console.log('compID', req.params.id);//
+  Component.findById(req.params.id)
+  .then(component =>{
+    res.render('components/show',{
+      title: component.name,
+      component
+    })
+  })
+}
+
 export {
   index,
   newComp as new,
@@ -88,4 +99,5 @@ export {
   edit,
   update,
   delComp as delete,
+  show,
 }
