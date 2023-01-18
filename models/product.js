@@ -10,6 +10,7 @@ const productSchema = new Schema({
   sku:  {type: String, default: ''},
   price:  {type: Number, default: 0},
   available:  {type: Boolean, default: false},
+  qty: {type: Number, default: 0, min:0 },
   components: [{
     type: Schema.Types.ObjectId,
     ref: "Component"

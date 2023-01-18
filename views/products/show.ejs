@@ -1,12 +1,52 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/prodShow.css">
 <%- include('../partials/nav') %>
-
 <%- include('../partials/storeNav') %> 
 
 <main>
-
 <h1><%= title %> </h1>
+<div class="main-container">
+  <section id="left-main">
+    <section>
+      <img src="//unsplash.it/300/300">
+      <div>
+        <p><span class="prodLabel">Part Number:</span> <%= product.sku %></p>
+        <p><span class="prodLabel">Description:</span> <%= product.description %></p>
+        <div><span class="prodLabel">Components:</span>
+        <% if (product.components.length) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>QTY</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for( let i = 0; i < product.components.length; i++ ) { %>
+                <tr>
+                  <td><%= product.compQty[i] %></td>
+                  <td><%= product.components[i].name %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        <% } else{%>
+          <%= product.name %> Does not have any components. 
+        <% } %> </div>
+      </div>
+    </section>
 
+  </section>
+  <section id="right-main">
+    <div class="header">
+      In Stock: <%= product.qty %> 
+    </div>
+    <form id="cart-form" action=""></form>
+      <label for="qty-to-buy">Enter Quantity: </label>
+      <input form="cart-form" id="qty-to-buy" name="qtyAddToCart" type="text">
+      <button form="cart-form" type="submit">Add to Cart</button>
+  </section>
+</div>
 </main>
 
 <%- include('../partials/footer') %>

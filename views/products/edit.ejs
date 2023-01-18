@@ -30,6 +30,10 @@
       <input autocomplete="off" name="sku" type="text" value="<%= product.sku %>">
     </label>
     <label>
+      QTY: 
+      <input autocomplete="off" name="qty" type="text" value="<%= product.qty %>">
+    </label>
+    <label>
       In stock: 
       <input <%= product.available ? 'checked' : '' %> type="checkbox" name="available">
     </label>
