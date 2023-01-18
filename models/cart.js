@@ -3,11 +3,14 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const cartSchema = new Schema({
-  contents:[{
+  prods:[{
     type: Schema.Types.ObjectId,
     ref: "Product"
   }],
-  runningTot: Number
+  comps:[{
+    type: Schema.Types.ObjectId,
+    ref: "Component"
+  }]
 }, {
   timestamps: true
 })
