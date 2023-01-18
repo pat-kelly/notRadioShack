@@ -41,9 +41,9 @@
     <div class="header">
       In Stock: <%= product.qty %> 
     </div>
-    <form id="cart-form" action="/cart/<%= product._id %>?_method=PUT" method="POST"></form>
+    <form id="cart-form" action="/cart/<%= product._id %>?type=prod&_method=PUT" method="POST"></form>
       <label for="qty-to-buy">Enter Quantity: </label>
-      <input required form="cart-form" id="qty-to-buy" name="qtyAddToCart" type="text">
+      <input required form="cart-form" id="qty-to-buy" name="prodsQty" type="text">
       <% if (product.qty < 1 || !product.available) { %>
         <button disabled>Out of stock</button>       
       <% } else { %>
