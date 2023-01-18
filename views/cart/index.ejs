@@ -4,9 +4,28 @@
 <%- include('../partials/storeNav') %> 
 
 <main>
-  <h1>Your Shopping Cart</h1>
+  <h1>Shopping Cart</h1>
   
-  
+  <table>
+    <thead>
+      <tr>
+        <th>Items</th>
+        <th>QTY</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="table-category-title">PRODUCTS:</td></tr>
+      <% cart.prods.forEach(prod => { %>
+        <tr>
+          <td><%= prod.name %></td>
+          <td><%=  %> </td>
+        </tr>
+      <% }) %>
+      <tr><td class="table-category-title">COMPONENTS</td></tr>
+    </tbody>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

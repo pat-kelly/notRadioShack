@@ -46,7 +46,7 @@ function setGuest(req, res, next){
 }
 
 function setAdminMode(req, res, next) {
-  User.findById('63c82436411b5a838b3ae4b2')
+  User.findById('63c879b77ce8ca00b1f987c7')
   .populate('profile')
   .then(user =>{
     // console.log(user);
