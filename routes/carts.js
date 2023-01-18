@@ -6,6 +6,9 @@ const router = Router()
 //GET /
 router.get('/', cartsCtrl.index);
 
+// PUT /:id
+router.put('/:id', cartsCtrl.update)
+
 export {
   router
 }
