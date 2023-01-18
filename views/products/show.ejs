@@ -25,7 +25,7 @@
               <% for( let i = 0; i < product.components.length; i++ ) { %>
                 <tr>
                   <td><%= product.compQty[i] %></td>
-                  <td><%= product.components[i].name %></td>
+                  <td><a target="_blank" href="/components/<%= product.components[i]._id %>"><%= product.components[i].name %></a></td>
                 </tr>
               <% } %>
             </tbody>
@@ -44,7 +44,11 @@
     <form id="cart-form" action=""></form>
       <label for="qty-to-buy">Enter Quantity: </label>
       <input form="cart-form" id="qty-to-buy" name="qtyAddToCart" type="text">
-      <button form="cart-form" type="submit">Add to Cart</button>
+      <% if (product.qty < 1 || !product.available) { %>
+        <button disabled>Out of stock</button>       
+      <% } else { %>
+        <button form="cart-form" type="submit">Add to Cart</button>
+      <% } %> 
   </section>
 </div>
 </main>
