@@ -82,7 +82,9 @@ function delComp(req, res){
 }
 
 function show(req, res){
-  console.log('compID', req.params.id);//
+  if(req.query.err){
+    res.locals.err = req.query.err;
+  }
   Component.findById(req.params.id)
   .then(component =>{
     res.render('components/show',{
