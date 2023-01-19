@@ -1,11 +1,12 @@
 *{
-  --nav-bg-color: darkgray;
-  --nav-text-color: white;
+  --nav-bg-color: linear-gradient(rgba(169, 169, 169, 1), rgba(169, 169, 169, 0.6));  
+  --nav-bg-color-inv: linear-gradient(rgba(169, 169, 169, 0.6),rgba(169, 169, 169, 1));
+  --nav-text-color: rgb(0, 0, 0);
 }
 
 nav {
   padding: 10px 20px;
-  background-color: var(--nav-bg-color);
+  background: var(--nav-bg-color);
   color: var(--nav-text-color);
   z-index: 10;
 }
@@ -116,12 +117,13 @@ form>input{
 #store-nav{
   display:flex;
   justify-content:center;
-  border-top: 2px solid black;
+  /* border-top: 2px solid black; */
   border-bottom: 2px solid black;
+  background: var(--nav-bg-color-inv);
 }
 
 #store-nav a{
-  color:white;
+  color: var(--nav-text-color);
   transition: 250ms;
   border-radius: 20px;
 }
