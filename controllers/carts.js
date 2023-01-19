@@ -32,6 +32,10 @@ function update(req, res){
           res.redirect('/cart')
         })
       })
+      .catch(err =>{
+        console.log(err);
+        res.redirect(`/products/${req.params.id}?err=qtyType`)
+      })
     }
     else if(req.query.type === 'comp'){
       Component.findById(req.params.id)
@@ -42,6 +46,10 @@ function update(req, res){
         .then(()=>{
           res.redirect('/cart')
         })
+      })
+      .catch(err =>{
+        console.log(err);
+        res.redirect(`/components/${req.params.id}?err=qtyType`)
       })
     }    
   })
