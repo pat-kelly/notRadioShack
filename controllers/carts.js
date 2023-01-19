@@ -4,12 +4,10 @@ import { Component } from "../models/component.js";
 import { User } from "../models/user.js";
 
 function index(req, res){
-  console.log('SHOW ME DA CART');
   let toFind;
   if(req.user){
     toFind = req.user.profile
   }else{
-    console.log('CARTHERE',res.locals.guest.profile)
     toFind = res.locals.guest.profile;
   }
 

@@ -15,15 +15,17 @@
         <th>Total</th>
       </tr>
     </thead>
+    <% let total = 0 %> 
     <tbody>
       <% for( let i = 0; i < cart.prods.length; i++ ) { %>
         <tr>
           <td><%= cart.prods[i].name %> </td>
           <td>Product</td>
           <td><%= cart.prodsQty[i] %></td>
-          <td><%= cart.prods[i].price %></td>
-          <% let total = cart.prods[i].price * cart.prodsQty[i] %> 
-          <td><%= total %> </td>
+          <td>$<%= cart.prods[i].price %></td>
+          <% let subtotal = cart.prods[i].price * cart.prodsQty[i] %> 
+          <td>$<%= subtotal %></td>
+          <% total += subtotal %> 
         </tr>
       <% } %>
       <% for( let i = 0; i < cart.comps.length; i++ ) { %>
@@ -31,12 +33,22 @@
           <td><%= cart.comps[i].name %> </td>
           <td>Component</td>
           <td><%= cart.compsQty[i] %></td>
-          <td><%= cart.comps[i].cost *2 %></td>
-          <td><%= (cart.comps[i].cost *2)* cart.compsQty[i] %> </td>
+          <td>$<%= cart.comps[i].cost *2 %></td>
+          <% let subtotal = (cart.comps[i].cost *2)* cart.compsQty[i] %> 
+          <td>$<%= subtotal %> </td>
+          <% total += subtotal %> 
         </tr>
       <% } %>
     </tbody>
   </table>
+  <section id="checkout-area">
+    <form action="/cart" method="POST">
+      <label for="subtotal">Subtotal</label>
+      <div id="subtotal">$ <%= total %></div>
+      <button type="submit" formaction="/cart?_method=EMPTY">Clear Cart</button>
+      <button type="submit">Checkout</button>
+    </form>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
