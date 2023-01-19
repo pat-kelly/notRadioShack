@@ -179,13 +179,15 @@ function delComp(req, res){
 }
 
 function show(req, res){
-  // console.log('prodID', req.params.id);
+  if(req.query.err){
+    res.locals.err = req.query.err;
+  }
   Product.findById(req.params.id)
   .populate('components')
   .then(product =>{
     res.render('products/show',{
       title: product.name,
-      product
+      product,      
     })
   })
 }
