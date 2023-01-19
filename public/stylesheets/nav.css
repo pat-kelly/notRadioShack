@@ -2,6 +2,9 @@
   --nav-bg-color: linear-gradient(rgba(169, 169, 169, 1), rgba(169, 169, 169, 0.6));  
   --nav-bg-color-inv: linear-gradient(rgba(169, 169, 169, 0.6),rgba(169, 169, 169, 1));
   --nav-text-color: rgb(0, 0, 0);
+  --button-hover-color: rgba(0,0,0,.1);
+  --content-bg-color: white;
+  --content-bg-color-hover: #dfdfdf;
 }
 
 nav {
@@ -52,6 +55,7 @@ form>input{
 
 .emp:hover{
   box-shadow:inset 0 0 4px rgba(0, 0, 0, 1);
+  background-color: var(--button-hover-color);
 }
 
 .prof-actions div a{
@@ -130,6 +134,7 @@ form>input{
 
 #store-nav a:hover{
   box-shadow: 0 0 5px black;
+  background-color: var(--button-hover-color);
 }
 
 #mobile-nav{

@@ -6,26 +6,24 @@
 <main class="product-listing">
   
   <% for( let i = 0; i < products.length; i++ ) { %>
-    <section class = 'product'>
-      <a href="/products/<%= products[i]._id %>">
-        <img src="//unsplash.it/150/150">
+    <a href="/products/<%= products[i]._id %>">
+      <section class = 'product'>
+        <img src="//unsplash.it/250/225">
         <p class="prod-name"><%= products[i].name %></p>
-        <p class="prod-desc"><%= products[i].shortDesc %> </p>
-      </a>
-    </section>
+        <p class="prod-desc"><%= products[i].shortDesc %></p>
+      </section>
+    </a>
   <% } %>
   
   <% for( let i = 0; i < components.length; i++ ) { %>
     <section class = 'product'>
       <a href="/components/<%= components[i]._id %>" >
-        <img src="//unsplash.it/150/150">
+        <img src="//unsplash.it/250/225">
         <p class="prod-name"><%= components[i].name %></p>
         <p class="prod-desc"><%= components[i].shortDesc %></p>
       </a>
     </section>
-  <% } %>
-
-  
+  <% } %>  
 </main>
 
 <%- include('./partials/footer') %>
