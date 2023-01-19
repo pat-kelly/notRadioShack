@@ -3,7 +3,7 @@ import { Product } from '../models/product.js'
 
 function index (req, res) {
   let prodFilter = false, compFilter = false;
-  // console.log('query',req.query.prodFilter);
+  // console.log('user/profile', res.locals.guest);
   if(req.query.prodFilter){
     switch (req.query.prodFilter) {
       case 'products':

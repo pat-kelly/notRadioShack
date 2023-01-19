@@ -5,7 +5,15 @@ import { User } from "../models/user.js";
 
 function index(req, res){
   console.log('SHOW ME DA CART');
-  Profile.findById(req.user.profile)
+  let toFind;
+  if(req.user){
+    toFind = req.user.profile
+  }else{
+    console.log('CARTHERE',res.locals.guest.profile)
+    toFind = res.locals.guest.profile;
+  }
+
+  Profile.findById(toFind)
   .populate('cart.prods')
   .populate('cart.comps')
   .then(prof =>{
@@ -17,14 +25,17 @@ function index(req, res){
   .catch(err =>{
     console.error(err);
     res.redirect('/');
-  })
+  }) 
 }
 
 function update(req, res){
-  console.log('productID', req.params.id);
-  console.log('qty', req.body.prodsQty);
-  console.log('query', req.query.type);
-  Profile.findById(req.user.profile)
+  let toFind;
+  if(req.user)
+    toFind = req.user.profile;
+  else 
+    toFind = res.locals.guest.profile
+
+  Profile.findById(toFind)
   .populate('cart')
   .then(prof =>{
     if(req.query.type === 'prod'){

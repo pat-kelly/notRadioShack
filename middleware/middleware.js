@@ -2,6 +2,7 @@ import {User} from '../models/user.js';
 import { Profile } from '../models/profile.js';
 
 function passDataToView(req, res, next) {
+  console.log('inPassData', req.user);
   res.locals.user = req.user ? req.user : null
   res.locals.googleClientID = process.env.GOOGLE_CLIENT_ID
   next()
@@ -12,11 +13,11 @@ function setGuest(req, res, next){
     next()
   }else{
     User.findOne({email: req.sessionID})
-    .then(user =>{
-      if(user){
-        console.log('found user', user);
-        req.user = user;
-        res.locals.user = user;        
+    .then(foundUser =>{
+      if(foundUser){
+        console.log('found user', foundUser);
+        res.locals.guest = foundUser;
+        next()
       }else{
         const newProfile = new Profile({
           name: req.sessionID,
@@ -31,8 +32,8 @@ function setGuest(req, res, next){
         .then(() =>{
           newUser.save()
           .then(() =>{
-            req.user = newUser;
-            res.locals.user = newUser;
+            res.locals.guest = newUser;
+            next()
           })
           .catch(err =>{
             Profile.findByIdAndDelete(newProfile._id);
@@ -41,7 +42,6 @@ function setGuest(req, res, next){
         })
       }
     })
-    next()
   }
 }
 
