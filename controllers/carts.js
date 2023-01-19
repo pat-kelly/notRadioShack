@@ -108,7 +108,7 @@ function checkout(req, res){
     emptyCart(prof.cart)
     prof.save()
     .then(()=>{
-      res.redirect('/cart/checkout');
+      res.render('cart/checkout');
     })
   })
   .catch(err =>{
