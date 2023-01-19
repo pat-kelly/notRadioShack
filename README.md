@@ -1,1 +1,1 @@
-![Image of Combat Screen](public/assets/logo.png)
+![Image of Combat Screen](/public/Assets/logo.png)
