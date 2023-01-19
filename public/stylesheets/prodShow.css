@@ -53,6 +53,7 @@ th{
   gap:8vw;
   background: var(--lingrad-bg-grey-bg);
   padding: 20px 0;
+  width: 100vw;
 }
 
 .prodLabel{
