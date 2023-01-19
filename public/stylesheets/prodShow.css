@@ -3,15 +3,37 @@ div{
   /* justify-content: space-around; */
 }
 
+a:hover{
+  font-weight: 500;
+}
+
+i{
+  color: var(--link-icon-color);
+}
+
 section{
   display:flex;
   gap:15px;
 }
 
+p{
+  margin: 5px;
+  padding-left:3px;
+}
+
 table{
   text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin: 15px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+tr>td, tr>th{
+  border-right: 1px solid black;
+}
+
+th{
+  border-bottom: 1px solid black;
 }
 
 .red{
@@ -22,9 +44,15 @@ table{
   color:black;
 }
 
+.center-align{
+  text-align: center;
+}
+
 .main-container{
   justify-content: center;
-  gap: 30px;
+  gap:8vw;
+  background: var(--lingrad-bg-grey-bg);
+  padding: 20px 0;
 }
 
 .prodLabel{
@@ -35,12 +63,12 @@ table{
 .header{
   font-size: 32px;
   font-weight: 600;
-  background-color: gray;
 }
 
 #left-main{
   flex-direction: column;
   width: 50%;
+  /* background-color: var(--content-bg-color-hover); */
 }
 
 #left-main div{
@@ -50,6 +78,9 @@ table{
 
 #right-main{
   flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  width: 30vw;
 }
 
 @media (max-width: 1200px){

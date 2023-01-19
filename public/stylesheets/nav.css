@@ -5,6 +5,8 @@
   --button-hover-color: rgba(0,0,0,.1);
   --content-bg-color: white;
   --content-bg-color-hover: #dfdfdf;
+  --link-icon-color: rgba(0,0,0,0.4);
+  --lingrad-bg-grey-bg: linear-gradient(#f6f6f6, 5%, rgba(169, 169, 169, 0.2), 95%, #f6f6f6)
 }
 
 nav {

@@ -8,24 +8,28 @@
 <div class="main-container">
   <section id="left-main">
     <section>
-      <img src="//unsplash.it/300/300">
+      <span><img src="//unsplash.it/300/300"></span>
       <div>
-        <p><span class="prodLabel">Part Number:</span> <%= product.sku %></p>
-        <p><span class="prodLabel">Description:</span> <%= product.description %></p>
+        <span class="prodLabel">Part Number:</span> 
+          <p><%= product.sku %></p>
+        <span class="prodLabel">Description:</span> 
+          <p><%= product.description %></p>
         <div><span class="prodLabel">Components:</span>
+          <p>These are the components that are a part of the <%= product.name %>. If buying a completed product, everything is done.</p>
+          <p>If buying a kit, they are individually packaged, so you can solder them together.</p>
         <% if (product.components.length) { %>
           <table>
             <thead>
-              <tr>
-                <th>QTY</th>
+              <tr class="bottom-border">
+                <th class="center-align">QTY</th>
                 <th>Name</th>
               </tr>
             </thead>
             <tbody>
               <% for( let i = 0; i < product.components.length; i++ ) { %>
                 <tr>
-                  <td><%= product.compQty[i] %></td>
-                  <td><a target="_blank" href="/components/<%= product.components[i]._id %>"><%= product.components[i].name %></a></td>
+                  <td class="center-align"><%= product.compQty[i] %></td>
+                  <td><a target="_blank" href="/components/<%= product.components[i]._id %>"><%= product.components[i].name %>  <i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a></td>
                 </tr>
               <% } %>
             </tbody>
