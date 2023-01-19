@@ -6,16 +6,17 @@
 <body>
   <nav id="main-nav">
     <% if (user) { %>
-      <div style="height:40px">
-        <a href="/auth/logout" class="right">
-          <img
-          id="profile-pic"
-          height="100%"
-          src="<%= user.profile.avatar %>"
-          alt="<%= user.profile.name %> avatar"
-        />
-          <!-- <button type="submit">Logout</button> -->
-        </a>
+      <div class="prof-actions">
+        <img
+        id="profile-pic"
+        height="40px"
+        src="<%= user.profile.avatar %>"
+        alt="<%= user.profile.name %> avatar"
+      />
+        <div id="prof-links">
+          <a href="/auth/logout">Logout</a>
+          <a href="">My Favorites</a>
+        </div>
       </div>
     <% } else { %>
       <div>
@@ -34,23 +35,28 @@
         data-shape="pill"
         data-logo_alignment="left"
         ></div>
+        <div class="favText"><i class="fa-regular fa-hand-point-left"></i>Login to save Favorites!</div>
       </div>
     <% } %>
     <div class="search-bar">
       <form action="/search" method="GET">
-        <input type="text" name="searchTerms">
-        <button type="submit">🔍️</button>
+        <input placeholder="I'm shopping for..." type="text" name="searchTerms">
+        <button id="search-button" type="submit">
+          <span >🔍️</span>
+          <!-- <i class="fa-solid fa-magnifying-glass fa-lg"></i> -->
+        </button>
       </form>
     </div>
     <div>
       <% if (user?.role >= 200) { %>
         <form action="/products">
-          <button type="submit" formaction="/">Storefront</button>
-          <button type="submit">Edit Products</button>
+          <button class="emp" type="submit" formaction="/">Storefront</button>
+          <button class="emp" type="submit">Edit Products</button>
         </form>
       <% } %>
-      <a href="/cart">
-        <i class="fa-solid fa-cart-shopping fa-2x"></i>
+      <a id="cart" href="/cart">
+        <i id="cart-icon-1" class="fa-solid fa-cart-shopping fa-2x"></i>
+        <i id="cart-icon-2" class="fa-solid fa-cart-arrow-down fa-2x"></i>
       </a>
     </div>
   </nav>
@@ -59,7 +65,7 @@
       <i class="fa-solid fa-bars"></i>
     </a>
     <a href="">
-      <i class="fa-solid fa-cart-shopping"></i>
+      <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
     </a>
 
   </nav>

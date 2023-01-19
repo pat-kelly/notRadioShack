@@ -1,14 +1,13 @@
-#main-nav {
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-  min-height: 60px;
+*{
+  --nav-bg-color: darkgray;
+  --nav-text-color: white;
 }
 
 nav {
   padding: 10px 20px;
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  background-color: var(--nav-bg-color);
+  color: var(--nav-text-color);
+  z-index: 10;
 }
 
 nav > a {
@@ -17,8 +16,101 @@ nav > a {
   padding: 0 20px;
 }
 
+button{
+  background-color: rgba(0, 0, 0, 0);
+  border:none;
+  font-size: 24px;
+  z-index: 11;
+  transition: 200ms;
+  border-radius: 25px;
+  padding:5px;
+  cursor: pointer;
+}
+
+#search-button:hover{
+  transform: rotate(0.25turn);
+  /* filter: brightness(0.8); */
+  box-shadow:inset 0 0 3px black;
+}
+
 nav form{
   display:inline-block;
+}
+
+form>input{
+  font-size: 14px;
+  padding: 6px;
+  min-width: 25vw;
+  margin-right: 10px;
+}
+
+.emp{
+  font-size: 16px;
+  transition: 200ms;
+}
+
+.emp:hover{
+  box-shadow:inset 0 0 4px rgba(0, 0, 0, 1);
+}
+
+.prof-actions div a{
+  padding: 0 10px;
+}
+
+.prof-actions div{
+  font-size: 16px;
+  position: absolute;
+  left: 60px;
+  top:-60px;
+  opacity:0;
+  transition: 250ms;
+}
+
+.prof-actions:hover div{
+  opacity: 1;
+  z-index: 11;
+  top:0;
+}
+
+.favText{
+  position: absolute;
+  left: 90px;
+}
+
+.search-bar>form{
+  display:flex;
+  align-items: center;
+}
+
+#cart-icon-2{
+  display:none;
+}
+
+#cart:hover #cart-icon-2{
+  display:inline;
+}
+
+#cart:hover #cart-icon-1{
+  display:none;
+}
+
+#prof-links{
+  display:flex;
+  align-items: center;
+  height:60px;
+}
+
+#main-nav {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  min-height: 60px;
+}
+
+#main-nav>div{
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 #store-nav{
@@ -26,6 +118,16 @@ nav form{
   justify-content:center;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+}
+
+#store-nav a{
+  color:white;
+  transition: 250ms;
+  border-radius: 20px;
+}
+
+#store-nav a:hover{
+  box-shadow: 0 0 5px black;
 }
 
 #mobile-nav{
@@ -37,7 +139,26 @@ nav form{
   font-size: 32px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 900px) {
+  .favText{
+    display:none;
+  }
+
+  .prof-actions:hover div{
+    /* left:15px; */
+    top: 0;
+  }
+
+  #prof-links{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    gap: 3px;
+  }
+}
+
+@media (max-width: 660px){
   .search-bar{
     display:none;
   }
