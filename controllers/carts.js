@@ -52,7 +52,14 @@ function update(req, res){
 }
 
 function delCart(req, res){
-  console.log('IT WORKS!');
+  Profile.findById(getProf(req))
+  .then(prof=>{
+    emptyCart(prof.cart)
+    prof.save()
+    .then(()=>{
+      res.redirect('/');
+    })
+  })
 }
 
 function checkout(req, res){
@@ -98,7 +105,11 @@ function checkout(req, res){
         throw new Error(err);
       })
     }
-    res.redirect('/cart/checkout');
+    emptyCart(prof.cart)
+    prof.save()
+    .then(()=>{
+      res.redirect('/cart/checkout');
+    })
   })
   .catch(err =>{
     console.error(err);
@@ -106,8 +117,14 @@ function checkout(req, res){
   })
 }
 
-function emptyCart(){
-
+function emptyCart(cart){
+  while(cart.prods.length){
+    cart.prods.pop();
+  }
+  while(cart.comps.length){
+    cart.comps.pop();
+  }
+  return;
 }
 
 function getProf(req){
