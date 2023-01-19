@@ -2,7 +2,6 @@ import {User} from '../models/user.js';
 import { Profile } from '../models/profile.js';
 
 function passDataToView(req, res, next) {
-  console.log('inPassData', req.user);
   res.locals.user = req.user ? req.user : null
   res.locals.googleClientID = process.env.GOOGLE_CLIENT_ID
   next()
