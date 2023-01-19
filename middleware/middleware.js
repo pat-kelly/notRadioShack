@@ -14,7 +14,7 @@ function setGuest(req, res, next){
     User.findOne({email: req.sessionID})
     .then(foundUser =>{
       if(foundUser){
-        console.log('found user', foundUser);
+        // console.log('found user', foundUser);
         res.locals.guest = foundUser;
         next()
       }else{
