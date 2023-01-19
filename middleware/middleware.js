@@ -56,9 +56,9 @@ function setAdminMode(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
-  return next()
-  // if (req.isAuthenticated()) return next()
-  // res.redirect('/')
+  // return next()
+  if (req.isAuthenticated()) return next()
+  res.redirect('/')
 }
 
 function isAdmin(req, res, next){
