@@ -26,8 +26,6 @@ const cartSchema = new Schema({
     required: true,
     default: []
   }],
-}, {
-  timestamps: true
 })
 
 const profileSchema = new Schema({
@@ -39,11 +37,11 @@ const profileSchema = new Schema({
   }],
   cart: {
     type: cartSchema,
-    default: {
+    default:{
       prods: [],
       prodsQty: [],
       comps: [],
-      compsQty: []
+      compsqty: []
     }
   }
 }, {

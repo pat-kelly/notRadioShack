@@ -23,9 +23,9 @@
     <div class="header">
       In Stock: <%= component.qty %> 
     </div>
-    <form id="cart-form" action=""></form>
+    <form id="cart-form" action="/cart/<%= component._id %>?type=comp&_method=PUT" method="POST"></form>
       <label for="qty-to-buy">Enter Quantity: </label>
-      <input form="cart-form" id="qty-to-buy" name="qtyAddToCart" type="text">
+      <input form="cart-form" id="qty-to-buy" name="compsQty" type="text">
       <% if (component.qty < 1 || !component.available) { %>
         <button disabled>Out of stock</button>       
       <% } else { %>

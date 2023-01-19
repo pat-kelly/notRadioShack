@@ -5,25 +5,36 @@
 
 <main>
   <h1>Shopping Cart</h1>
-  
   <table>
     <thead>
       <tr>
         <th>Items</th>
+        <th>Category</th>
         <th>QTY</th>
         <th>Price</th>
         <th>Total</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td class="table-category-title">PRODUCTS:</td></tr>
-      <% cart.prods.forEach(prod => { %>
+      <% for( let i = 0; i < cart.prods.length; i++ ) { %>
         <tr>
-          <td><%= prod.name %></td>
-          <td><%=  %> </td>
+          <td><%= cart.prods[i].name %> </td>
+          <td>Product</td>
+          <td><%= cart.prodsQty[i] %></td>
+          <td><%= cart.prods[i].price %></td>
+          <% let total = cart.prods[i].price * cart.prodsQty[i] %> 
+          <td><%= total %> </td>
         </tr>
-      <% }) %>
-      <tr><td class="table-category-title">COMPONENTS</td></tr>
+      <% } %>
+      <% for( let i = 0; i < cart.comps.length; i++ ) { %>
+        <tr>
+          <td><%= cart.comps[i].name %> </td>
+          <td>Component</td>
+          <td><%= cart.compsQty[i] %></td>
+          <td><%= cart.comps[i].cost *2 %></td>
+          <td><%= (cart.comps[i].cost *2)* cart.compsQty[i] %> </td>
+        </tr>
+      <% } %>
     </tbody>
   </table>
 </main>

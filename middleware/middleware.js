@@ -46,7 +46,7 @@ function setGuest(req, res, next){
 }
 
 function setAdminMode(req, res, next) {
-  User.findById('63c879b77ce8ca00b1f987c7')
+  User.findById('63c896575f5eec803a93f550')
   .populate('profile')
   .then(user =>{
     // console.log(user);
@@ -57,9 +57,9 @@ function setAdminMode(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
-  return next()
-  // if (req.isAuthenticated()) return next()
-  // res.redirect('/')
+  // return next()
+  if (req.isAuthenticated()) return next()
+  res.redirect('/')
 }
 
 function isAdmin(req, res, next){
