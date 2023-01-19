@@ -7,7 +7,13 @@ const router = Router()
 router.get('/', cartsCtrl.index);
 
 // PUT /:id
-router.put('/:id', cartsCtrl.update)
+router.put('/:id', cartsCtrl.update);
+
+// EMPTY /
+router.delete('/', cartsCtrl.delete);
+
+// POST /
+router.post('/', cartsCtrl.checkout)
 
 export {
   router
