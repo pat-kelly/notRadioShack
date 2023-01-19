@@ -3,7 +3,7 @@ import { Product } from "../models/product.js";
 import { Component } from "../models/component.js";
 
 function index(req, res){
-  Profile.findById(getProf(req))
+  Profile.findById(getProf(req, res))
   .populate('cart.prods')
   .populate('cart.comps')
   .then(prof =>{
@@ -19,7 +19,7 @@ function index(req, res){
 }
 
 function update(req, res){
-  Profile.findById(getProf(req))
+  Profile.findById(getProf(req, res))
   .populate('cart')
   .then(prof =>{
     if(req.query.type === 'prod'){
@@ -52,7 +52,7 @@ function update(req, res){
 }
 
 function delCart(req, res){
-  Profile.findById(getProf(req))
+  Profile.findById(getProf(req, res))
   .then(prof=>{
     emptyCart(prof.cart)
     prof.save()
@@ -64,7 +64,7 @@ function delCart(req, res){
 
 function checkout(req, res){
   //redirect to thank you page
-  Profile.findById(getProf(req))
+  Profile.findById(getProf(req, res))
   .populate('cart.prods', '_id')
   .populate('cart.comps', '_id')
   .then(prof =>{
@@ -127,7 +127,7 @@ function emptyCart(cart){
   return;
 }
 
-function getProf(req){
+function getProf(req, res){
   let toFind;
   if(req.user){
     toFind = req.user.profile
