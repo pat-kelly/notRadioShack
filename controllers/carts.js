@@ -71,7 +71,6 @@ function delCart(req, res){
 }
 
 function checkout(req, res){
-  //redirect to thank you page
   Profile.findById(getProf(req, res))
   .populate('cart.prods', '_id')
   .populate('cart.comps', '_id')
@@ -116,7 +115,9 @@ function checkout(req, res){
     emptyCart(prof.cart)
     prof.save()
     .then(()=>{
-      res.render('cart/checkout');
+      res.render('cart/checkout',{
+        title: 'Thank you for your purchase!'
+      });
     })
   })
   .catch(err =>{

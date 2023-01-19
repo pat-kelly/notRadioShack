@@ -4,51 +4,55 @@
 <%- include('../partials/storeNav') %> 
 
 <main>
-  <h1>Shopping Cart</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Items</th>
-        <th>Category</th>
-        <th>QTY</th>
-        <th>Price</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <% let total = 0 %> 
-    <tbody>
-      <% for( let i = 0; i < cart.prods.length; i++ ) { %>
+  <h1><%= title %></h1>
+  <% if (cart.comps.length === 0 && cart.prods.length === 0) { %>
+    <h2>Your cart is empty!</h2>
+  <% } else { %>
+    <table>
+      <thead>
         <tr>
-          <td><%= cart.prods[i].name %> </td>
-          <td>Product</td>
-          <td><%= cart.prodsQty[i] %></td>
-          <td>$<%= cart.prods[i].price %></td>
-          <% let subtotal = cart.prods[i].price * cart.prodsQty[i] %> 
-          <td>$<%= subtotal %></td>
-          <% total += subtotal %> 
+          <th>Items</th>
+          <th>Category</th>
+          <th>QTY</th>
+          <th>Price</th>
+          <th>Total</th>
         </tr>
-      <% } %>
-      <% for( let i = 0; i < cart.comps.length; i++ ) { %>
-        <tr>
-          <td><%= cart.comps[i].name %> </td>
-          <td>Component</td>
-          <td><%= cart.compsQty[i] %></td>
-          <td>$<%= cart.comps[i].cost *2 %></td>
-          <% let subtotal = (cart.comps[i].cost *2)* cart.compsQty[i] %> 
-          <td>$<%= subtotal %> </td>
-          <% total += subtotal %> 
-        </tr>
-      <% } %>
-    </tbody>
-  </table>
-  <section id="checkout-area">
-    <form action="/cart" method="POST">
-      <label for="subtotal">Subtotal</label>
-      <div id="subtotal">$ <%= total %></div>
-      <button type="submit" formaction="/cart?_method=DELETE">Clear Cart</button>
-      <button type="submit">Checkout</button>
-    </form>
-  </section>
+      </thead>
+      <% let total = 0 %> 
+      <tbody>
+        <% for( let i = 0; i < cart.prods.length; i++ ) { %>
+          <tr>
+            <td><%= cart.prods[i].name %> </td>
+            <td>Product</td>
+            <td><%= cart.prodsQty[i] %></td>
+            <td>$<%= cart.prods[i].price %></td>
+            <% let subtotal = cart.prods[i].price * cart.prodsQty[i] %> 
+            <td>$<%= subtotal %></td>
+            <% total += subtotal %> 
+          </tr>
+        <% } %>
+        <% for( let i = 0; i < cart.comps.length; i++ ) { %>
+          <tr>
+            <td><%= cart.comps[i].name %> </td>
+            <td>Component</td>
+            <td><%= cart.compsQty[i] %></td>
+            <td>$<%= cart.comps[i].cost *2 %></td>
+            <% let subtotal = (cart.comps[i].cost *2)* cart.compsQty[i] %> 
+            <td>$<%= subtotal %> </td>
+            <% total += subtotal %> 
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <section id="checkout-area">
+      <form action="/cart" method="POST">
+        <label for="subtotal">Subtotal</label>
+        <div id="subtotal">$ <%= total %></div>
+        <button type="submit" formaction="/cart?_method=DELETE">Clear Cart</button>
+        <button type="submit">Checkout</button>
+      </form>
+    </section>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>
