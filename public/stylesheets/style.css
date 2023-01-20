@@ -210,8 +210,8 @@ pre {
 }
 
 .product:hover{
-  filter: brightness(1.1);
-  box-shadow: 0 0 5px black;
+  filter: brightness(1.2);
+  box-shadow: 0 0 15px black;
   background-color: var(--content-bg-color-hover);
 }
 
