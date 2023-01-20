@@ -115,6 +115,10 @@ pre {
   color:black;
 }
 
+#prod-comp-links a:hover{
+  color:black;
+}
+
 #edit-table *{
   padding: 1px 10px;
 }
@@ -132,6 +136,28 @@ pre {
   background-color: var(--button-hover-color);
   border:1px solid darkgray;
   border-radius: 50px;
+}
+
+.new-details{
+  display:flex;
+  flex-direction: column;
+  gap:15px;
+  width: 30vw;
+}
+
+.new-details div{
+  display:flex;
+  justify-content: space-between;
+}
+
+.top-margin-30{
+  margin-top:30px;
+}
+
+#new-details-check{
+  justify-content: start;
+  gap:105px;
+  margin-bottom: 25px;
 }
 
 .add-new{

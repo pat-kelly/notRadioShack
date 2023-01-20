@@ -11,67 +11,37 @@
 <!-- The below is a stretch goal / future update -->
 <!-- <form id="add-component-form" action="#" onsubmit="return addComponent(comp)" method="PUT"></form> -->
 
-<section>
-  <h4>Product Details</h4>
-  <label>
-    Name: 
+  <h3>Product Details</h3>
+<section class="new-details">
+  <div>
+    <label>Name: </label>
     <input required autocomplete="off" name="name" form="new-product-form" type="text">
-  </label>
-  <label>
-    Description: 
-    <textarea autocomplete="off" name="description" form="new-product-form" type="text"></textarea>
-  </label>
-  <label>
-    Price: 
+  </div>
+  <div>
+    <label>Description: </label>
+    <textarea cols="35" rows="5" autocomplete="off" name="description" form="new-product-form" type="text"></textarea>
+  </div>
+  <div>
+    <label>Price: </label>
     <input autocomplete="off" name="price" form="new-product-form" type="text">
-  </label>
-  <label>
-    SKU: 
+  </div>
+  <div>
+    <label>SKU: </label>
     <input autocomplete="off" name="sku" form="new-product-form" type="text">
-  </label>
-  <label>
-    QTY: 
+  </div>
+  <div>
+    <label>QTY: </label>
     <input autocomplete="off" name="qty" form="new-product-form" type="text">
-  </label>
-  <label>
-    In stock: 
+  </div>
+  <div id="new-details-check">
+    <label>In stock: </label>
     <input type="checkbox" name="available">
-  </label>
-<!--
-  <h4>Components</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>QTY</th>
-      </tr>
-    </thead>
-    <tbody id="compList">
-      
-    </tbody>
-  </table>
-  <select name="comp" form="add-component-form">
-    <%# components.forEach(comp => { %>
-      <option value="<%#= comp._id %>"><%#= comp.name %></option>
-    <%# }) %>
-  </select>
+  </div>
 
-
- <script>
-  function addComponent(obj){
-    alert(obj.value);
-    const htmlToAdd = `
-    <tr>
-      <td>${obj}
-    </tr>
-    `;
-    document.getElementById('compList').innerHTML += htmlToAdd;
-  }
-</script> -->
-<button type="submit" form="new-product-form" formaction="/products/create?editComps=true">Save Product & add Components</button>
-<button type="submit" form="new-product-form">
-  Add New Product
-</button>
+  <button type="submit" form="new-product-form" formaction="/products/create?editComps=true">Save Product & add Components</button>
+  <button type="submit" form="new-product-form">
+    Add New Product
+  </button>
 </section>
 
 

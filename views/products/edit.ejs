@@ -5,40 +5,40 @@
   <%- include('../partials/prod_comp_links')  %> 
 
 <h1><%= title %> </h1>
-
+<h3>Product Details</h3>
 <form 
   id="edit-product-form" 
   action="/products/<%= product._id %>?_method=PUT" 
   method="POST"
 >
-  <section>
-    <h4>Product Details</h4>
-    <label>
-      Name: 
-      <input autocomplete="off" name="name" type="text" value="<%= product.name %>">
-    </label>
-    <label>
-      Description: 
-      <textarea autocomplete="off" name="description" type="text" "><%= product.description %></textarea>
-    </label>
-    <label>
-      Price: 
-      <input autocomplete="off" name="price" type="text" value="<%= product.price %>">
-    </label>
-    <label>
-      SKU: 
-      <input autocomplete="off" name="sku" type="text" value="<%= product.sku %>">
-    </label>
-    <label>
-      QTY: 
-      <input autocomplete="off" name="qty" type="text" value="<%= product.qty %>">
-    </label>
-    <label>
-      In stock: 
-      <input <%= product.available ? 'checked' : '' %> type="checkbox" name="available">
-    </label>
 
-    <h4>Components</h4>
+  <section class="new-details">
+    <div>
+      <label>Name: </label>
+      <input autocomplete="off" name="name" type="text" value="<%= product.name %>">
+    </div>
+    <div>
+      <label>Description: </label>
+      <textarea cols="35" rows="5" autocomplete="off" name="description" type="text" "><%= product.description %></textarea>
+    </div>
+    <div>
+      <label>Price: </label>
+      <input autocomplete="off" name="price" type="text" value="<%= product.price %>">
+    </div>
+    <div>
+      <label>SKU: </label>
+      <input autocomplete="off" name="sku" type="text" value="<%= product.sku %>">
+    </div>
+    <div>
+      <label>QTY: </label>
+      <input autocomplete="off" name="qty" type="text" value="<%= product.qty %>">
+    </div>
+    <div id="new-details-check">
+      <label>In stock: </label>
+      <input <%= product.available ? 'checked' : '' %> type="checkbox" name="available">
+    </div>
+
+    <h3 style="text-align:center">Components</h3>
     <% if (product.components.length) { %>
       <table>
         <thead>
@@ -60,7 +60,7 @@
       <h4>This product doesn't have any components</h4>
     <% } %> 
   </section>
-  <section>
+  <section class="top-margin-30">
     <button type="submit" formaction="/products/<%= product._id %>?editComp=true&_method=PUT">
       Save and Add Components
     </button>
