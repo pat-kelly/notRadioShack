@@ -99,6 +99,44 @@ pre {
   font-size: 48px;
 }
 
+#prod-comp-links{
+  margin:40px;
+}
+
+#prod-comp-links a{
+  margin:20px;
+  font-size: 32px;
+  color:var(--button-hover-color);
+}
+
+#prod-comp-links .active{
+  font-weight: 500;
+  text-decoration: underline;
+  color:black;
+}
+
+#edit-table *{
+  padding: 1px 10px;
+}
+
+#edit-table a{
+  font-weight: 500;
+}
+
+#edit-table a:hover{
+  text-decoration: underline;
+}
+
+#edit-table .del-button{
+  padding: 3px 6px;
+  background-color: var(--button-hover-color);
+  border:1px solid darkgray;
+  border-radius: 50px;
+}
+
+.add-new{
+  margin-top:25px;
+}
 
 .product-listing{
   display:flex;

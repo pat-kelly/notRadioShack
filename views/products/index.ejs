@@ -6,7 +6,7 @@
 
 <h4>Click on the name of a product to edit it.</h4>
 
-<table>
+<table id="edit-table">
   <thead>
     <tr>
       <% if (locals.user?.role >=900) { %>
@@ -40,7 +40,7 @@
   </tbody>
 </table>
 <form action="/products/new">
-  <button type="submit">
+  <button class="add-new" type="submit">
     Add New Product
   </button>
 </form>
