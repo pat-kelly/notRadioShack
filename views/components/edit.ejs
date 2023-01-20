@@ -8,41 +8,41 @@
 
 
 
+<h3>Component Details</h3>
 <section>
-  <h3>Component Details</h3>
-  <form action="/components/<%= component._id %>?_method=PUT" method="POST">
-    <label>
-      Part Number: 
+  <form class="new-details" action="/components/<%= component._id %>?_method=PUT" method="POST">
+    <div>
+      <label>Part Number: </label>
       <input value="<%= component.partNo %>" required autocomplete="off" name="partNo" type="text">
-    </label>
-    <label>
-      Name: 
+    </div>
+    <div>
+      <label>Name: </label>
       <input value="<%= component.name %>" required autocomplete="off" name="name" type="text">
-    </label>
-    <label>
-      Description: 
-      <textarea required autocomplete="off" name="description" type="text"><%= component.description %></textarea>
-    </label>
-    <label>
-      Cost: 
+    </div>
+    <div>
+      <label>Description: </label>
+      <textarea cols="35" rows="5" required autocomplete="off" name="description" type="text"><%= component.description %></textarea>
+    </div>
+    <div>
+      <label>Cost: </label>
       <input value="<%= component.cost %>" autocomplete="off" name="cost" type="text">
-    </label>
-    <label>
-      Type: 
+    </div>  
+    <div>
+      <label>Type: </label>
       <input value="<%= component.type %>" required autocomplete="off" name="type" type="text">
-    </label>
-    <label>
-      Vendor: 
+    </div>
+    <div>
+      <label>Vendor: </label>
       <input value="<%= component.vendor %>" autocomplete="off" name="vendor" type="text">
-    </label>
-    <label>
-      QTY: 
+    </div>
+    <div>
+      <label>QTY: </label>
       <input value="<%= component.qty %>" autocomplete="off" name="qty" type="text">
-    </label>
-    <label>
-      In Stock: 
+    </div>
+    <div id="new-details-check">
+      <label>In Stock: </label>
       <input <%= component.available ? 'checked' : '' %> name="available" type="checkbox">
-    </label>
+    </div>
 
     <button type="submit">
       Update <%= component.name %> 

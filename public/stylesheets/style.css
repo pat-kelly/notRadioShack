@@ -160,6 +160,18 @@ pre {
   margin-bottom: 25px;
 }
 
+#add-comps{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+#comp-form{
+  display:flex;
+  justify-content: center;
+  gap:20px;
+}
+
 .add-new{
   margin-top:25px;
 }

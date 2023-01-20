@@ -6,8 +6,8 @@
 
 <h1><%= title %> </h1>
 
-<section>
-  <h2>Components</h2>
+<h2>Components</h2>
+<section id="add-comps">
   <% if (product.components.length) { %>
     <table>
       <thead>
@@ -55,7 +55,7 @@
     <button type="submit">Add Component</button>
   </form>
 
-<form action="#" method="GET">
+<form id="comp-form" action="#" method="GET">
   <button type="submit" formaction="/products/<%= product._id %>/edit">Back to Edit <%= product.name %></button>
   <button type="submit" formaction="/products">All Products</button>
 </form>
