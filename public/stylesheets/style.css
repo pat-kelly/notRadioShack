@@ -93,6 +93,10 @@ pre {
   position: relative;
 }
 
+.hero-content>h1{
+  font-size: 48px;
+}
+
 
 .product-listing{
   display:flex;
