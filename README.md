@@ -22,6 +22,7 @@ Product View:
 - ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express)
 
 ### 🧊 Planned Features
+- [ ] Take/upload pics by prod_id
 - [ ] Be able to save favorites for Logged in users
 - [ ] Leave reviews for Products
 - [ ] Rate Products
