@@ -23,6 +23,11 @@
   </section>
   <section id="right-main">
     <div class="header">
+      <% let price = component.cost *2 %> 
+      <% price = Math.round(price * 100)/100 %> 
+      Price: $<%= price %> 
+    </div>
+    <div class="sub-header">
       In Stock: <%= component.qty %> 
     </div>
     <form id="cart-form" action="/cart/<%= component._id %>?type=comp&_method=PUT" method="POST"></form>
