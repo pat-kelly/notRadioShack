@@ -1,0 +1,64 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:5vh;
+  background: var(--lingrad-bg-grey-bg);
+  padding: 20px 0;
+  width: 100vw;
+}
+
+table{
+  width: 50vw;
+  border-collapse: collapse;
+}
+
+th{
+  text-align: left;
+}
+
+tr th{
+  border-bottom: 1px solid black;
+  /* font-size: 20px; */
+}
+
+td{
+  margin: 2px 0;
+}
+
+tr:nth-child(even){
+  background-color: #f0f0f0;
+}
+
+form{
+  text-align: right;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+form label{
+  font-size: 24px;
+}
+
+#checkout-area button{
+  /* display: block; */
+  width:180px;
+  /* background-color: var(--content-bg-color-hover); */
+}
+
+.center-align{
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+#subtotal{
+  font-size: 20px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#checkout-area{  
+  width: 50vw;
+}

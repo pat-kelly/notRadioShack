@@ -86,9 +86,13 @@ pre {
 }
 
 .hero-content{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   height:20vh;
   position: relative;
 }
+
 
 .product-listing{
   display:flex;
