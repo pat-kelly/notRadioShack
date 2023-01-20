@@ -43,6 +43,9 @@
   </section>
   <section id="right-main">
     <div class="header">
+      Price: $<%= product.price %> 
+    </div>
+    <div class="sub-header">
       In Stock: <%= product.qty %> 
     </div>
     <form id="cart-form" action="/cart/<%= product._id %>?type=prod&_method=PUT" method="POST"></form>
