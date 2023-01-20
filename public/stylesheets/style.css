@@ -91,9 +91,11 @@ pre {
   align-items: center;
   height:20vh;
   position: relative;
+  background: var(--title-bg-color);
+  width:100vw;
 }
 
-.hero-content>h1{
+#store-title{
   font-size: 48px;
 }
 
