@@ -1,4 +1,4 @@
 <section id="prod-comp-links">
   <a <%= title === 'All Products' ? "class=active" : '' %>  href="/products">Products</a>
-  <a <%= title === 'All Components' ? "class=active" : '' %>  href="/components">Components</a>
+  <a <%= title === 'All Components' ? "class=active" : '' %> <%= user.role >=900 ? "href=/components" : "href=/products" %>>Components</a>
 </section>
