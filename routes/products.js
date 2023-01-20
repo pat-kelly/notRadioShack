@@ -16,10 +16,6 @@ router.get('/new', isLoggedIn, isEmployee, productCtrl.new);
 // POST /products/create
 router.post('/create', isLoggedIn, isEmployee, productCtrl.create);
 
-// POST /products/createAddComps
-//!might be depreciated. leaving until i'm 100% sure.
-//router.post('/createAddComps', isLoggedIn, isEmployee, productCtrl.createAddComps);
-
 // PUT /products/:id
 router.put('/:id', isLoggedIn, isEmployee, productCtrl.update);
 

@@ -1,39 +1,39 @@
-  <% if (!user) { %>
-    <script defer src="https://accounts.google.com/gsi/client"></script>
-  <% } %>
-  <link rel="stylesheet" href="/stylesheets/nav.css">
+<% if (!user) { %>
+  <script defer src="https://accounts.google.com/gsi/client"></script>
+<% } %>
+<link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
   <nav id="main-nav">
     <% if (user) { %>
       <div class="prof-actions">
         <img
-        id="profile-pic"
-        height="40px"
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
+          id="profile-pic"
+          height="40px"
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
         <div id="prof-links">
           <a href="/auth/logout">Logout</a>
-          <a href="">My Favorites</a>
+          <a href="">My Favorites<br/><span style="font-size:10px; text-align: center;">Coming soon!</span></a>
         </div>
       </div>
     <% } else { %>
       <div>
         <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
         ></div>
         <div 
-        class="g_id_signin right"
-        data-type="icon"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="pill"
-        data-logo_alignment="left"
+          class="g_id_signin right"
+          data-type="icon"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="pill"
+          data-logo_alignment="left"
         ></div>
         <div class="favText"><i class="fa-regular fa-hand-point-left"></i>  Login to save Favorites!</div>
       </div>
@@ -43,7 +43,6 @@
         <input placeholder="I'm shopping for..." type="text" name="searchTerms">
         <button id="search-button" type="submit">
           <span>🔍️</span>
-          <!-- <i class="fa-solid fa-magnifying-glass fa-lg"></i> -->
         </button>
       </form>
     </div>
@@ -61,6 +60,8 @@
     </div>
   </nav>
   <nav id="mobile-nav">
+    <!-- Leaving this here for later. 
+         need to attach .js to get mobile menus working -->
     <!-- <i id="mob-menu" class="fa-solid fa-bars"></i> -->
     <!-- <div id="slide-out-menu"> -->
       <% if (user) { %>
@@ -101,5 +102,4 @@
     <a id="cart" href="/cart">
       <i class="fa-solid fa-cart-shopping"></i>
     </a>
-
   </nav>

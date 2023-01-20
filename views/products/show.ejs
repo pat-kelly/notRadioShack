@@ -15,9 +15,9 @@
         <span class="prodLabel">Description:</span> 
           <p><%= product.description %></p>
         <div><span class="prodLabel">Components:</span>
+        <% if (product.components.length) { %>
           <p>These are the components that are a part of the <%= product.name %>. If buying a completed product, everything is done.</p>
           <p>If buying a kit, they are individually packaged, so you can solder them together.</p>
-        <% if (product.components.length) { %>
           <table>
             <thead>
               <tr class="bottom-border">
@@ -35,7 +35,7 @@
             </tbody>
           </table>
         <% } else{%>
-          <%= product.name %> Does not have any components. 
+          <p><%= product.name %> Does not have any components.</p> 
         <% } %> </div>
       </div>
     </section>
