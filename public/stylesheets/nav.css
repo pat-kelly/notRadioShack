@@ -49,6 +49,9 @@ form>input{
   min-width: 25vw;
   margin-right: 10px;
 }
+form>input:focus{
+  outline:none;
+}
 
 .emp{
   font-size: 16px;
@@ -173,8 +176,25 @@ nav i{
 }
 
 @media (max-width: 660px){
-  .search-bar{
-    display:none;
+  
+  #mob-search-button{
+    position: absolute;
+    top: -200px;
+    display:hidden;
+  }
+
+  #cart{
+    padding:0;
+  }
+
+  #mob-search{
+    width: 45vw;
+    margin:0;
+    /* padding:0; */
+  }
+
+  #mob-search:focus{
+    outline: none;
   }
 
   #main-nav{
@@ -189,4 +209,18 @@ nav i{
   #store-nav a{
     font-size: 20px;
   }
+
+  #mob-menu:hover, #mob-menu:active{
+    background-color: black;
+  }
+
+  #mob-menu:hover, #mob-menu:active + #slide-out-menu{
+    display:inline;
+  }
+
+  #slide-out-menu{
+    display:none;
+
+  }
+
 }

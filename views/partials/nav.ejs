@@ -35,14 +35,14 @@
         data-shape="pill"
         data-logo_alignment="left"
         ></div>
-        <div class="favText"><i class="fa-regular fa-hand-point-left"></i>Login to save Favorites!</div>
+        <div class="favText"><i class="fa-regular fa-hand-point-left"></i>  Login to save Favorites!</div>
       </div>
     <% } %>
     <div class="search-bar">
       <form action="/search" method="GET">
         <input placeholder="I'm shopping for..." type="text" name="searchTerms">
         <button id="search-button" type="submit">
-          <span >🔍️</span>
+          <span>🔍️</span>
           <!-- <i class="fa-solid fa-magnifying-glass fa-lg"></i> -->
         </button>
       </form>
@@ -61,11 +61,45 @@
     </div>
   </nav>
   <nav id="mobile-nav">
-    <a href="">
-      <i class="fa-solid fa-bars"></i>
-    </a>
-    <a href="">
-      <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
+    <!-- <i id="mob-menu" class="fa-solid fa-bars"></i> -->
+    <!-- <div id="slide-out-menu"> -->
+      <% if (user) { %>
+        <div class="prof-actions">
+          <a href="/auth/logout">
+            <img
+              id="profile-pic"
+              height="40px"
+              src="<%= user.profile.avatar %>"
+              alt="<%= user.profile.name %> avatar"
+            />
+          </a>
+        </div>
+      <% } else { %>
+        <div>
+          <div 
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
+          ></div>
+          <div 
+          class="g_id_signin right"
+          data-type="icon"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="pill"
+          data-logo_alignment="left"
+          ></div>
+        </div>
+      <% } %>
+    <!-- </div> -->
+    <form action="/search" method="GET">
+      <input id="mob-search" placeholder="I'm shopping for..." type="text" name="searchTerms">
+      <button id="mob-search-button" type="submit"></button>
+    </form>
+    <a id="cart" href="/cart">
+      <i class="fa-solid fa-cart-shopping"></i>
     </a>
 
   </nav>
